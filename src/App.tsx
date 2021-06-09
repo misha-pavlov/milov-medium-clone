@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import MediumMainContainer from './pages/MediumMain/MediumMainContainer';
+import { constants } from './config/constants';
 
 const gg1 = () => <div>ourStory</div>
 const gg2 = () => <div>post</div>
@@ -16,13 +17,13 @@ const App = () => {
     <ChakraProvider>
       <BrowserRouter>
         <Switch>
-          <Route exact path={'/medium'} component={MediumMainContainer} />
-          <Route exact path={'/ourStory'} component={gg1} />
-          <Route exact path={'/post/:namePost/:id'} component={gg2} />
-          <Route exact path={'/topic/:nameTopic'} component={gg3} />
-          <Route exact path={'/topics'} component={gg4} />
-          <Route exact path='/' render={() => <Redirect to={'/medium'} />}/>
-          <Route path='*' component={ErrorPage}/>
+          <Route exact path={constants.urls.medium} component={MediumMainContainer} />
+          <Route exact path={constants.urls.ourStory} component={gg1} />
+          <Route exact path={constants.urls.post} component={gg2} />
+          <Route exact path={constants.urls.topic} component={gg3} />
+          <Route exact path={constants.urls.topics} component={gg4} />
+          <Route exact path={constants.urls.redirect} render={() => <Redirect to={constants.urls.medium} />}/>
+          <Route path={constants.urls.error} component={ErrorPage}/>
         </Switch>
       </BrowserRouter>
     </ChakraProvider>

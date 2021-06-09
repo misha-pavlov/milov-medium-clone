@@ -1,14 +1,14 @@
-import styles from 'styled-components';
+import styled from 'styled-components';
 import { colors } from '../../config/colors';
 
-export const ErrorPageBlock = styles.div`
+export const ErrorPageBlock = styled.div`
     height: 100vh;
     display: flex;
     alignt-items: center;
     justify-content: center;
 `;
 
-export const Text404 = styles.p`
+export const Text404 = styled.p`
     font-size: 90px;
     line-height: 104px;
     font-family: Nunito-Bold;
@@ -17,7 +17,7 @@ export const Text404 = styles.p`
     padding: 0;
 `;
 
-export const TextPageNotFound = styles.p`
+export const TextPageNotFound = styled.p`
     font-size: 60px;
     line-height: 74px;
     font-family: Nunito-Bold;
@@ -27,7 +27,7 @@ export const TextPageNotFound = styles.p`
     padding: 0;
 `;
 
-export const TextBlock = styles.div`
+export const TextBlock = styled.div`
     padding-bottom: 110px;
     padding-left: 60px;
 `;

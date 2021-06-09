@@ -1,8 +1,11 @@
-import styles from 'styled-components';
+import styled from 'styled-components';
+import { colors } from '../../config/colors'
 
-export const HeaderBlock = styles.div`
-    width: 1200px;
-    flex-direction: row;
-    justify-content: space-between;
-    border: 1px solid red;
+export const Li = styled.p`
+    font-family: Nunito-Regular;
+    font-size: 16px;
+    color: ${colors.black1};
+    &:hover {
+        color: ${colors.green1};
+    }
 `
