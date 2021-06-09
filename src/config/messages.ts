@@ -1,5 +1,5 @@
 export const messages = {
     error: {
-        pageNotFount: 'page not found'
+        pageNotFound: 'page not found'
     }
 }

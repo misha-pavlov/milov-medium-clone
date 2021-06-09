@@ -1,5 +1,5 @@
-import styles from 'styled-components'
-import { colors } from '../../config/colors'
+import styles from 'styled-components';
+import { colors } from '../../config/colors';
 
 export const ErrorPageBlock = styles.div`
     height: 100vh;

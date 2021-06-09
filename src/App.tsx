@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import './App.css';
-import ErrorPage from './pages/ErrorPage/ErrorPage'
+import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 const gg = () => <div>ggg</div>
 const gg1 = () => <div>ourStory</div>

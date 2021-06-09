@@ -1,8 +1,9 @@
 import React from 'react';
-import { Image, Stack } from "@chakra-ui/react"
+import { Image, Stack } from '@chakra-ui/react';
 
-import ErrorImage from '../../assets/img/errorImage.svg'
-import { ErrorPageBlock, Text404, TextPageNotFound, TextBlock } from './ErrorPage.styles'
+import ErrorImage from '../../assets/img/errorImage.svg';
+import { ErrorPageBlock, Text404, TextPageNotFound, TextBlock } from './ErrorPage.styles';
+import { messages } from '../../config/messages';
 
 const ErrorPage = () => {
     return <ErrorPageBlock>
@@ -19,7 +20,7 @@ const ErrorPage = () => {
                 </Text404>
 
                 <TextPageNotFound>
-                    page not found
+                    {messages.error.pageNotFound}
                 </TextPageNotFound>
             </TextBlock>
         </Stack>
