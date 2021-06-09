@@ -1,25 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
-function App() {
+import './App.css';
+import ErrorPage from './pages/ErrorPage/ErrorPage'
+
+const gg = () => <div>ggg</div>
+const gg1 = () => <div>ourStory</div>
+const gg2 = () => <div>post</div>
+const gg3 = () => <div>topic</div>
+const gg4 = () => <div>topics</div>
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path={'/medium'} component={gg} />
+        <Route exact path={'/ourStory'} component={gg1} />
+        <Route exact path={'/post/:namePost/:id'} component={gg2} />
+        <Route exact path={'/topic/:nameTopic'} component={gg3} />
+        <Route exact path={'/topics'} component={gg4} />
+        <Route exact path='/' render={() => <Redirect to={'/medium'} />}/>
+        <Route path='*' component={ErrorPage}/>
+      </Switch>
+    </BrowserRouter>
   );
 }
 

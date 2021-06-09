@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'Nunito-Bold';
+  src: local('Nunito-Bold'),
+       url('./assets/fonts/Nunito-Bold.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Nunito-Regular';
+  src: local('Nunito-Regular'),
+       url('./assets/fonts/Nunito-Regular.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Nunito-SemiBold';
+  src: local('Nunito-SemiBold'),
+       url('./assets/fonts/Nunito-SemiBold.ttf') format('truetype')
+}
