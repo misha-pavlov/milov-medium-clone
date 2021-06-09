@@ -13,14 +13,15 @@ import { constants } from '../../config/constants';
 
 type TModalLogin = {
     isOpen: boolean;
+    isSignUp?: boolean;
     onClose: () => void;
 }
 
-const ModalLogin:React.FC<TModalLogin> = ({ isOpen, onClose }) => {
+const ModalLogin:React.FC<TModalLogin> = ({ isOpen, onClose, isSignUp }) => {
     return <Modal isOpen={isOpen} onClose={onClose}>
     <ModalOverlay />
     <ModalContent padding={15}>
-      <Tabs variant="soft-rounded" colorScheme="green">
+      <Tabs variant="soft-rounded" colorScheme="green"  defaultIndex={isSignUp ? 1 : 0}>
       <ModalHeader>
         <TabList justifyContent='center'>
             <Tab>{messages.login.signIn}</Tab>
