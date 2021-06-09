@@ -23,11 +23,11 @@ export const TextPageNotFound = styles.p`
     font-family: Nunito-Bold;
     text-transform: uppercase;
     color: ${colors.black1};
-    margin: 0;
+    margin: 0 0 30px 0;
     padding: 0;
 `;
 
 export const TextBlock = styles.div`
-    padding-bottom: 120px;
+    padding-bottom: 110px;
     padding-left: 60px;
 `;
