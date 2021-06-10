@@ -4,12 +4,10 @@ import { Button, Modal,
     ModalContent,
     ModalHeader,
     ModalFooter,
-    ModalBody,
-    ModalCloseButton, Tabs, TabList, Tab, TabPanel, TabPanels, Stack } from '@chakra-ui/react';
+    ModalBody, Tabs, TabList, Tab, TabPanel, TabPanels, Stack } from '@chakra-ui/react';
 
 import { messages } from '../../config/messages';
-import SingInWithButtons from '../../components/SignInWithButton/SingInWithButtons'
-import { constants } from '../../config/constants';
+import SingInWithButtons from '../../components/SignInWithButton/SingInWithButtons';
 
 type TModalLogin = {
     isOpen: boolean;

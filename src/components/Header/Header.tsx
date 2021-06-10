@@ -14,20 +14,20 @@ const Header = () => {
 
     return <Stack justify='center' align='center'>
         <Stack direction='row' justify='space-between' width={1200} paddingTop={8} paddingBottom={8}>
-            <Stack>
+            <NavLink to={constants.urls.medium}>
                 <Image
                     boxSize={10}
                     objectFit="cover"
                     src={logo}
                     alt="logo"
                 />
-            </Stack>
+            </NavLink>
 
             <ModalLogin isOpen={isOpen} onClose={onClose} />
 
             <Stack direction='row' justify='space-between' align='center' spacing={5}>
                 <Li><NavLink to={constants.urls.ourStory}>{messages.nav.ourStory}</NavLink></Li>
-                <Button colorScheme="teal" variant="ghost" color={colors.black1} fontWeight={'none'} onClick={onOpen}>
+                <Button colorScheme="teal" variant="outline" onClick={onOpen}>
                     {messages.login.signIn}
                 </Button>
             </Stack>
