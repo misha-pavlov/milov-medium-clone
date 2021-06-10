@@ -29,3 +29,9 @@ code {
   src: local('Nunito-SemiBold'),
        url('./assets/fonts/Nunito-SemiBold.ttf') format('truetype')
 }
+
+@font-face {
+  font-family: 'Nunito-Light';
+  src: local('Nunito-Light'),
+       url('./assets/fonts/Nunito-Light.ttf') format('truetype')
+}

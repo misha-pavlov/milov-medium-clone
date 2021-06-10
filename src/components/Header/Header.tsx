@@ -6,7 +6,6 @@ import { Li } from './Header.styles';
 import logo from '../../assets/icons/medium.svg'
 import { constants } from '../../config/constants';
 import { messages } from '../../config/messages';
-import { colors } from '../../config/colors';
 import ModalLogin from '../ModalLogin/ModalLogin';
 
 const Header = () => {

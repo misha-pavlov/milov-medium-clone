@@ -15,4 +15,5 @@ export const messages = {
         signUpText: 'Зареєструватись з '
     },
     goodIdea: 'Медіум - місце де завжди можна знайти хорошу ідею',
+    trending: 'Тренди на Медіумі',
 }
