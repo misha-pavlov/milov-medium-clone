@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack, Image } from '@chakra-ui/react';
+import { Stack } from '@chakra-ui/react';
 import { QuestionIcon } from '@chakra-ui/icons';
 
 import { PostCreator, DefaultText, TrendingNumber, PostDateTime } from '../../../../config/fonts';
@@ -17,6 +17,7 @@ const TrendItem: React.FC<TTrendItem> = ({ trendNumber }) => {
         </Stack>
 
         <Stack>
+            {/*Convert this to component HeaderPost*/}
             <Stack direction='row' align='center' mb={2}>
                 <Stack>
                     <QuestionIcon boxSize={5} />
