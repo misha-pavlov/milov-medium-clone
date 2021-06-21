@@ -3,7 +3,9 @@ export const messages = {
         pageNotFound: 'page not found'
     },
     buttons: {
-        back: 'Назад'
+        back: 'Назад',
+        follow: 'Підписатись',
+        unfollow: 'Відписатись',
     },
     nav: {
         ourStory: 'Наша історія',
@@ -17,4 +19,8 @@ export const messages = {
     goodIdea: 'Медіум - місце де завжди можна знайти хорошу ідею',
     trending: 'Тренди на Медіумі',
     recentPost: 'Останні пости',
+    footer: {
+        mediumClone: 'Medium clone',
+        milov: 'by Misha Pavlov (MiLov)'
+    }
 }

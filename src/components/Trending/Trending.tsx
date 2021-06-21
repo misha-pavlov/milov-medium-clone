@@ -2,8 +2,8 @@ import React from 'react';
 import { Stack } from '@chakra-ui/react';
 import { FundOutlined } from '@ant-design/icons';
 
-import { DefaultText } from '../../../../config/fonts';
-import { messages } from '../../../../config/messages';
+import { DefaultText } from '../../config/fonts';
+import { messages } from '../../config/messages';
 import TrendItem from './TrendItem';
 
 const Trending = () => {

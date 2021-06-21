@@ -7,10 +7,10 @@ export const DefaultText = styled.p<{ isBold?: boolean; isPost?: boolean }>`
     line-height: ${({isPost}) => isPost ? '22' : '16'}px;
 `;
 
-export const PostCreator = styled.p`
+export const PostCreator = styled.p<{ isPostPage?: boolean }>`
     font-family: Nunito-Bold;
-    font-size: 13px;
-    line-height: 13px;
+    font-size: ${({isPostPage}) => isPostPage ? 18 : 13}px;
+    line-height: ${({isPostPage}) => isPostPage ? 18 : 13}px;
 `;
 
 export const PostDateTime = styled.p`

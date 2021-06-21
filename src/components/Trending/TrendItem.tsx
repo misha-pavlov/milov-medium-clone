@@ -1,14 +1,22 @@
 import React from 'react';
 import { Stack } from '@chakra-ui/react';
+import { useHistory } from 'react-router-dom';
 
-import { DefaultText, TrendingNumber, PostDateTime } from '../../../../config/fonts';
-import HeaderPost from '../../../../components/HeaderPost/HeaderPost';
+import { DefaultText, TrendingNumber, PostDateTime } from '../../config/fonts';
+import HeaderPost from '../HeaderPost/HeaderPost';
+import {constants} from "../../config/constants";
 
 type TTrendItem = {
     trendNumber?: string;
 }
 
 const TrendItem: React.FC<TTrendItem> = ({ trendNumber }) => {
+    const history = useHistory();
+
+    const goToPost = () => {
+        history.push(constants.urls.post);
+    }
+
     return <Stack direction='row' width={350} spacing={10}>
         <Stack>
             <TrendingNumber>
@@ -18,7 +26,7 @@ const TrendItem: React.FC<TTrendItem> = ({ trendNumber }) => {
 
         <Stack>
             <HeaderPost />
-            <Stack>
+            <Stack onClick={goToPost}>
                 <DefaultText isBold>
                     Post Name
                 </DefaultText>
