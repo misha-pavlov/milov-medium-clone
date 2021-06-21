@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import RecentPosts from './RecentPosts'
+import RecentPosts from './RecentPosts';
 
 const RecentPostsContainer = () => {
     return <RecentPosts />

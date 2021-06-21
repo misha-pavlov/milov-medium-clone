@@ -28,3 +28,10 @@ export const TrendingNumber = styled.p`
     line-height: 30px;
     color: ${colors.gray1}
 `;
+
+export const RecentPost = styled.p`
+  font-family: Nunito-Bold;
+  font-size: 20px;
+  line-height: 20px;
+  margin-bottom: 10px;
+`;

@@ -16,4 +16,5 @@ export const messages = {
     },
     goodIdea: 'Медіум - місце де завжди можна знайти хорошу ідею',
     trending: 'Тренди на Медіумі',
+    recentPost: 'Останні пости',
 }
