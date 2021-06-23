@@ -12,6 +12,12 @@ const RecentPosts = () => {
         <RecentPostsItem/>
         <RecentPostsItem/>
         <RecentPostsItem/>
+        <RecentPostsItem/>
+        <RecentPostsItem/>
+        <RecentPostsItem/>
+        <RecentPostsItem/>
+        <RecentPostsItem/>
+        <RecentPostsItem/>
     </Stack>
 }
 
