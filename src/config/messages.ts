@@ -22,5 +22,7 @@ export const messages = {
     footer: {
         mediumClone: 'Medium clone',
         milov: 'by Misha Pavlov (MiLov)'
-    }
+    },
+    topic: 'Теми',
+    allTopics: 'Усі теми'
 }

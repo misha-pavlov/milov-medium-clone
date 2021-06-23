@@ -6,7 +6,7 @@ import { RecentPost } from '../../config/fonts';
 import { messages } from '../../config/messages';
 
 const RecentPosts = () => {
-    return <Stack width={1200} mt={10}>
+    return <Stack width={800} mt={10}>
         <RecentPost>{messages.recentPost}</RecentPost>
         <RecentPostsItem/>
         <RecentPostsItem/>

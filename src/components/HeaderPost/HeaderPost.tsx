@@ -1,13 +1,13 @@
 import React from 'react';
-import {Button, Stack, useDisclosure} from '@chakra-ui/react';
+import { Stack, useDisclosure } from '@chakra-ui/react';
 import { QuestionIcon } from '@chakra-ui/icons';
 import { BookOutlined, GithubOutlined, InstagramOutlined,
     LinkedinOutlined, TwitterOutlined, FacebookOutlined } from '@ant-design/icons';
 
 import { PostCreator } from '../../config/fonts';
-import { messages } from '../../config/messages';
 import { stylesPostPage } from './HeaderPost.styles';
-import ModalLogin from "../ModalLogin/ModalLogin";
+import ModalLogin from '../ModalLogin/ModalLogin';
+import FollowButton from '../FollowButton/FollowButton';
 
 type THeaderPost = {
     isPostPage?: boolean;
@@ -26,10 +26,7 @@ const HeaderPost:React.FC<THeaderPost> = ({ isPostPage }) => {
                 <PostCreator isPostPage={isPostPage}>
                     Name user
                 </PostCreator>
-
-                <Button colorScheme='green' size='sm' variant='outline' borderRadius={50} onClick={onOpen}>
-                    {messages.buttons.follow}
-                </Button>
+                <FollowButton onClick={onOpen} />
             </Stack>
 
             <Stack direction='row' align='center' spacing={5}>

@@ -29,9 +29,9 @@ export const TrendingNumber = styled.p`
     color: ${colors.gray1}
 `;
 
-export const RecentPost = styled.p`
+export const RecentPost = styled.p<{isTopicPage?: boolean}>`
   font-family: Nunito-Bold;
   font-size: 20px;
   line-height: 20px;
-  margin-bottom: 10px;
+  margin-bottom: ${({isTopicPage}) => isTopicPage ? 0 : 10}px;
 `;
