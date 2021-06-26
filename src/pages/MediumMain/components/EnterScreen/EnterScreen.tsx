@@ -1,30 +1,43 @@
 import React from 'react';
 import { Stack, Image, Button, useDisclosure } from '@chakra-ui/react';
 
-import { GoodIdeasText } from '../../MediumMain.styles';
+import { GoodIdeasText, TextUnderEnterText } from '../../MediumMain.styles';
 import { messages } from '../../../../config/messages';
 import goodIdeaImage from '../../../../assets/img/goodIdea.webp';
+import everyIdeaImage from '../../../../assets/img/OurStory/enter.webp';
 import ModalLogin from '../../../../components/ModalLogin/ModalLogin';
 
-const EnterScreen = () => {
+type TEnterScreen = {
+    isOurStory?: boolean;
+}
+
+const EnterScreen:React.FC<TEnterScreen> = ({ isOurStory }) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
-    return <Stack direction='row' justify='space-between' width={1200} align='center'>
+    return <Stack direction={isOurStory ? 'column' : 'row'} justify='space-between' width={1200} align='center'>
             <Stack>
-                <GoodIdeasText>
-                    {messages.goodIdea}
+                <GoodIdeasText isOurStory={isOurStory}>
+                    {isOurStory ? messages.everyIdea : messages.goodIdea}
                 </GoodIdeasText>
 
-                <Button colorScheme="teal" variant="outline" width={250} onClick={onOpen}>
-                    {messages.login.signUp}
-                </Button>
+                {
+                    isOurStory && <TextUnderEnterText>
+                        {messages.ourStoryText1}
+                    </TextUnderEnterText>
+                }
+
+                {
+                    !isOurStory && <Button colorScheme="teal" variant="outline" width={250} onClick={onOpen}>
+                        {messages.login.signUp}
+                    </Button>
+                }
             </Stack>
 
             <Stack>
                 <Image
                     objectFit="cover"
-                    src={goodIdeaImage}
-                    alt="goodIdeaImage"
+                    src={isOurStory ? everyIdeaImage : goodIdeaImage}
+                    alt="enterImage"
                 />
             </Stack>
             <ModalLogin isOpen={isOpen} onClose={onClose} isSignUp />
