@@ -1,15 +1,18 @@
 import React from 'react';
 import { Stack, Image, Button, useDisclosure } from '@chakra-ui/react';
+import { Search2Icon } from '@chakra-ui/icons';
 import { NavLink } from 'react-router-dom'
 
-import { Li } from './Header.styles';
+import { headerStyles, Li } from './Header.styles';
 import logo from '../../assets/icons/medium.svg'
 import { constants } from '../../config/constants';
 import { messages } from '../../config/messages';
 import ModalLogin from '../ModalLogin/ModalLogin';
+import SearchPosts from './components/SearchPosts';
 
 const Header = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const { isOpen: isOpenSearchMode, onOpen: onOpenSearchMode, onClose: onCloseSearchMode } = useDisclosure();
 
     return <Stack justify='center' align='center'>
         <Stack direction='row' justify='space-between' width={1200} paddingTop={8} paddingBottom={8}>
@@ -23,9 +26,14 @@ const Header = () => {
             </NavLink>
 
             <ModalLogin isOpen={isOpen} onClose={onClose} />
+            <SearchPosts isOpen={isOpenSearchMode} onClose={onCloseSearchMode} />
 
             <Stack direction='row' justify='space-between' align='center' spacing={5}>
                 <Li><NavLink to={constants.urls.ourStory}>{messages.nav.ourStory}</NavLink></Li>
+                <Button colorScheme="teal" variant="ghost" borderRadius={50}
+                        style={headerStyles.search} onClick={onOpenSearchMode}>
+                    <Search2Icon/>
+                </Button>
                 <Button colorScheme="teal" variant="outline" onClick={onOpen}>
                     {messages.login.signIn}
                 </Button>

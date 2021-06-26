@@ -9,7 +9,11 @@ import ModalLogin from '../ModalLogin/ModalLogin';
 import { constants } from '../../config/constants';
 import { stylesRecentPosts } from './RecentPosts.styles';
 
-const RecentPostsItem = () => {
+type TRecentPostsItem = {
+    isSearchPosts?: boolean;
+}
+
+const RecentPostsItem:React.FC<TRecentPostsItem> = ({ isSearchPosts }) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const history = useHistory();
 
@@ -17,7 +21,8 @@ const RecentPostsItem = () => {
         history.push(constants.urls.post);
     }
 
-    return <Stack width={700} direction='row' justify='space-between' align='center' mb={40}>
+    return <Stack width={700} direction='row' justify='space-between' align='center'
+                  style={isSearchPosts ? stylesRecentPosts.body : {}}>
         <Stack width={450}>
             <HeaderPost />
             <Stack onClick={goToPost} cursor='pointer'>

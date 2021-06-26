@@ -9,3 +9,9 @@ export const Li = styled.p`
         color: ${colors.green1};
     }
 `
+
+export const headerStyles = {
+    search: {
+        padding: 0
+    }
+}
