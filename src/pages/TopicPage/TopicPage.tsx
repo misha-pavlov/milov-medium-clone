@@ -8,8 +8,13 @@ import { RecentPost } from '../../config/fonts';
 import FollowButton from '../../components/FollowButton/FollowButton';
 import ModalLogin from '../../components/ModalLogin/ModalLogin';
 import Footer from '../../components/Footer/Footer';
+import HeaderPost from '../../components/HeaderPost/HeaderPost';
 
-const TopicPage = () => {
+type TTopicPage = {
+    isProfilePage?: boolean;
+}
+
+const TopicPage:React.FC<TTopicPage> = ({ isProfilePage }) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     return <Stack>
@@ -17,8 +22,9 @@ const TopicPage = () => {
         <Stack justify='center' direction='row'>
             <Stack width={800} mb={50}>
                 <Stack direction='row' align='center' mb={50}>
-                    <RecentPost isTopicPage>TopicName</RecentPost>
-                    <FollowButton onClick={onOpen} />
+                    {isProfilePage ? <HeaderPost isPostPage isProfilePage />
+                        : <RecentPost isTopicPage>TopicName</RecentPost>}
+                    {!isProfilePage && <FollowButton onClick={onOpen} />}
                 </Stack>
                 <RecentPostsItem/>
                 <RecentPostsItem/>

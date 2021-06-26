@@ -11,8 +11,6 @@ import TopicPageContainer from './pages/TopicPage/TopicPageContainer';
 import AllTopicsPageContainer from './pages/AllTopicsPage/AllTopicsPageContainer';
 import OurStoryPage from './pages/OurStoryPage/OurStoryPage';
 
-const gg1 = () => <div>Profile</div>
-
 const App = () => {
   return (
     <ChakraProvider>
@@ -20,7 +18,7 @@ const App = () => {
         <Switch>
           <Route exact path={constants.urls.medium} component={MediumMainContainer} />
           <Route exact path={constants.urls.ourStory} component={OurStoryPage} />
-          <Route exact path={constants.urls.profile} component={gg1} />
+          <Route exact path={constants.urls.profile} component={TopicPageContainer} />
           <Route exact path={constants.urls.post} component={PostPageContainer} />
           <Route exact path={constants.urls.topic} component={TopicPageContainer} />
           <Route exact path={constants.urls.topics} component={AllTopicsPageContainer} />

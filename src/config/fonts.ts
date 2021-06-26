@@ -11,6 +11,7 @@ export const PostCreator = styled.p<{ isPostPage?: boolean }>`
     font-family: Nunito-Bold;
     font-size: ${({isPostPage}) => isPostPage ? 18 : 13}px;
     line-height: ${({isPostPage}) => isPostPage ? 18 : 13}px;
+    cursor: pointer;
 `;
 
 export const PostDateTime = styled.p`
