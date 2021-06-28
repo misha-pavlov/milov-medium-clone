@@ -4,9 +4,10 @@ import { Stack } from '@chakra-ui/react';
 import RecentPostsItem from './RecentPostsItem';
 import { RecentPost } from '../../config/fonts';
 import { messages } from '../../config/messages';
+import GetMore from '../GetMore/GetMore';
 
 const RecentPosts = () => {
-    return <Stack width={800} mt={10}>
+    return <Stack width={800}>
         <RecentPost>{messages.recentPost}</RecentPost>
         <RecentPostsItem/>
         <RecentPostsItem/>
@@ -18,6 +19,7 @@ const RecentPosts = () => {
         <RecentPostsItem/>
         <RecentPostsItem/>
         <RecentPostsItem/>
+        <GetMore/>
     </Stack>
 }
 

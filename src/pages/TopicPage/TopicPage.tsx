@@ -9,6 +9,7 @@ import FollowButton from '../../components/FollowButton/FollowButton';
 import ModalLogin from '../../components/ModalLogin/ModalLogin';
 import Footer from '../../components/Footer/Footer';
 import HeaderPost from '../../components/HeaderPost/HeaderPost';
+import GetMore from '../../components/GetMore/GetMore';
 
 type TTopicPage = {
     isProfilePage?: boolean;
@@ -33,6 +34,7 @@ const TopicPage:React.FC<TTopicPage> = ({ isProfilePage }) => {
                 <RecentPostsItem/>
                 <RecentPostsItem/>
                 <RecentPostsItem/>
+                <GetMore/>
             </Stack>
 
             <Stack width={375}>
