@@ -9,7 +9,8 @@ type TFollowButton = {
 }
 
 const FollowButton:React.FC<TFollowButton> = ({ size= 'sm', onClick }) => {
-    return <Button colorScheme='green' size={size} variant='outline' borderRadius={50} onClick={onClick}>
+    return <Button colorScheme='green' disabled={true}
+                   size={size} variant='outline' borderRadius={50} onClick={onClick}>
         {messages.buttons.follow}
     </Button>
 }

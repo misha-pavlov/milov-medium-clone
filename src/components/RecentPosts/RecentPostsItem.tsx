@@ -1,5 +1,5 @@
 import React from 'react';
-import {Stack, Image, useDisclosure} from '@chakra-ui/react';
+import { Stack, Image, useDisclosure, Button } from '@chakra-ui/react';
 import { BookOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
 
@@ -8,6 +8,7 @@ import HeaderPost from '../HeaderPost/HeaderPost';
 import ModalLogin from '../ModalLogin/ModalLogin';
 import { constants } from '../../config/constants';
 import { stylesRecentPosts } from './RecentPosts.styles';
+import { colors } from '../../config/colors';
 
 type TRecentPostsItem = {
     isSearchPosts?: boolean;
@@ -34,7 +35,9 @@ const RecentPostsItem:React.FC<TRecentPostsItem> = ({ isSearchPosts }) => {
                 <PostDateTime>
                     Date • Time
                 </PostDateTime>
-                <Stack><BookOutlined style={stylesRecentPosts.saveIcon} onClick={onOpen} /></Stack>
+                <Button variant='ghost'  _hover={{ bg: colors.white2 }} disabled={true}>
+                    <BookOutlined style={stylesRecentPosts.saveIcon} onClick={onOpen} />
+                </Button>
             </Stack>
         </Stack>
 

@@ -6,6 +6,7 @@ export const messages = {
         back: 'Назад',
         follow: 'Підписатись',
         unfollow: 'Відписатись',
+        next: 'Дальше'
     },
     nav: {
         ourStory: 'Наша історія',
@@ -15,7 +16,8 @@ export const messages = {
         signUp: 'Зареєструватись',
         signInText: 'Увійти з ',
         signUpText: 'Зареєструватись з ',
-        write: 'Написати'
+        write: 'Написати',
+        userName: 'ім`ям користувача'
     },
     goodIdea: 'Медіум - місце де завжди можна знайти хорошу ідею',
     everyIdea: 'Кожна ідея потребує Медіум',
@@ -40,4 +42,15 @@ export const messages = {
     createYourThinks: 'Створіть простір для вашого мислення',
     readWrite: 'Читай, пиши і розширюй свій світ',
     getMore: 'Показати більше',
+    stages: {
+        userName: 'Ім`я користувача',
+        password: 'Пароль',
+        repeatPassword: 'Повторіть пароль',
+        photo: 'Силку на фото',
+        twitter: 'Twitter',
+        gitHub: 'GitHub',
+        linkedin: 'Linkedin',
+        facebook: 'Facebook',
+        instagram: 'Instagram',
+    }
 }

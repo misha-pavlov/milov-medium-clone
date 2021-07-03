@@ -30,12 +30,14 @@ const SearchPosts:React.FC<TSearchPosts> = ({ isOpen, onClose }) => {
         <ModalContent style={{background: 'rgba(0, 0, 0, 0)'}}>
             <ModalHeader style={searchPostsStyles.input}>
                 <form onSubmit={formik.handleSubmit}>
-                    <InputGroup bg={colors.black3} width={500}>
+                    <InputGroup bg={colors.black3} width={500}
+                                style={searchPostsStyles.searchBlock}>
                         <InputLeftElement
                             pointerEvents="none"
                             children={<Search2Icon color="gray.300" />}
                         />
                         <Input name="searchInput"
+                               style={searchPostsStyles.searchBlock}
                                onChange={formik.handleChange}
                                value={formik.values.searchInput}
                                color={colors.white1} placeholder="Пошук" />

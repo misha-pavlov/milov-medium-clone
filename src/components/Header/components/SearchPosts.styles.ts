@@ -3,5 +3,8 @@ export const searchPostsStyles = {
         display: 'flex',
         justifyContent: 'center',
         marginBottom: 30,
+    },
+    searchBlock: {
+        borderRadius: 10
     }
 }

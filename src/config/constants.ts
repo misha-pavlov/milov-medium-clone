@@ -12,7 +12,7 @@ export const constants = {
 
     signIn: {
         apple: 'Apple',
-        email: 'email',
+        userName: 'userName',
         facebook: 'Facebook',
         google: 'Google',
         twitter: 'Twitter',
