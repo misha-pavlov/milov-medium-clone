@@ -7,7 +7,7 @@ import { Modal,
 
 import { messages } from '../../config/messages';
 import SingInWithButtons from '../../components/SignInWithButton/SingInWithButtons';
-import Stage2 from './components/Stage2/Stage2';
+import Stage2Container from './components/Stage2/Stage2Container';
 import BackButton from './components/BackButton/BackButton';
 import Stage3 from './components/Stage3/Stage3';
 import Stage4 from './components/Stage4/Stage4';
@@ -53,7 +53,7 @@ const ModalLogin:React.FC<TModalLogin> = ({ isOpen, onClose, isSignUp }) => {
           {stage === 2 && <ModalBody>
               <BackButton onClick={() => setStage(1) }/>
               <Stack>
-                <Stage2 onClick={() => setStage(4)} />
+                <Stage2Container onClick={() => onClose()} />
               </Stack>
           </ModalBody>}
 

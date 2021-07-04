@@ -1,17 +1,19 @@
 import React from 'react';
-import { Button, Input, InputGroup, InputLeftElement, InputRightElement, Stack } from '@chakra-ui/react';
+import {
+    Button, Input, InputGroup, InputLeftElement,
+    InputRightElement, Stack, useToast
+} from '@chakra-ui/react';
 import { AtSignIcon, LockIcon } from '@chakra-ui/icons';
 import { useFormik } from 'formik';
 
 import { messages } from '../../../../config/messages';
 import { colors } from '../../../../config/colors';
+import { TStage2 } from './types';
 
-type TStage2 = {
-    onClick: () => void;
-}
-
-const Stage2: React.FC<TStage2> = ({ onClick }) => {
+const Stage2: React.FC<TStage2> = ({ onClick, users }) => {
+    const toast = useToast();
     const [show, setShow] = React.useState(false);
+
     const handleClick = () => setShow(!show);
 
     const formik = useFormik({
@@ -20,10 +22,36 @@ const Stage2: React.FC<TStage2> = ({ onClick }) => {
             password: '',
         },
         onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
-            values.userName = '';
-            values.password = '';
-            onClick();
+            if (users) {
+                users.filter(u => {
+                    if (u.userName === values.userName) {
+                        if (u.password === values.password) {
+                            toast.closeAll();
+                            toast({
+                                title: messages.stages.successLogin,
+                                status: "success",
+                                isClosable: true,
+                            })
+                            onClick();
+                            return 0;
+                        }
+                        toast.closeAll();
+                        toast({
+                            title: messages.stages.errorLogin,
+                            status: "error",
+                            isClosable: true,
+                        })
+                        return 0;
+                    }
+                    toast.closeAll();
+                    toast({
+                        title: messages.stages.errorLogin,
+                        status: "error",
+                        isClosable: true,
+                    })
+                    return 0;
+                })
+            }
         },
     });
     return <Stack>

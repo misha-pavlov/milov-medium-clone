@@ -16,5 +16,9 @@ export const constants = {
         facebook: 'Facebook',
         google: 'Google',
         twitter: 'Twitter',
+    },
+
+    reducers: {
+        SET_USER: 'SET_USER'
     }
 }

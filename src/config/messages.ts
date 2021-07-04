@@ -52,5 +52,7 @@ export const messages = {
         linkedin: 'Linkedin',
         facebook: 'Facebook',
         instagram: 'Instagram',
+        errorLogin: `Помилка при вводі ім'я користувача чи паролю`,
+        successLogin: 'Ви успішно залогінились'
     }
 }
