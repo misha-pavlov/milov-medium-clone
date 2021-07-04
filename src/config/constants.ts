@@ -20,5 +20,9 @@ export const constants = {
 
     reducers: {
         SET_USER: 'SET_USER'
+    },
+
+    localStorage: {
+        user: 'user',
     }
 }

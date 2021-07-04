@@ -6,10 +6,12 @@ import HeaderPost from '../../components/HeaderPost/HeaderPost';
 import TrendingContainer from '../../components/Trending/TrendingContainer';
 import Footer from '../../components/Footer/Footer';
 import { PostHeader } from './PostPage.styles';
+import { TMediumMain } from '../MediumMain/MediumMain';
 
-const PostPage = () => {
+const PostPage:React.FC<TMediumMain> = ({ isAuth, setIsAuth,
+                                            removeLocalStorageItem, addLocalStorageItem }) => {
     return <Stack>
-        <Header/>
+        <Header addLocalStorageItem={addLocalStorageItem} removeLocalStorageItem={removeLocalStorageItem} isAuth={isAuth} setIsAuth={setIsAuth} />
         <Stack align='center'>
             <Stack width={900}>
                 <PostHeader>How sex help you in life!</PostHeader>

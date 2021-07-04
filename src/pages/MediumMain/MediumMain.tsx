@@ -8,10 +8,20 @@ import RecentPostsContainer from '../../components/RecentPosts/RecentPostsContai
 import TopicsContainer from '../../components/Topics/TopicsContainer';
 import Footer from '../../components/Footer/Footer';
 
-const MediumMain = () => {
+export type TMediumMain = {
+    isAuth: boolean;
+    setIsAuth: (isAuth: boolean) => void;
+    removeLocalStorageItem?: () => void;
+    addLocalStorageItem?: (params: string) => void;
+}
+
+
+const MediumMain:React.FC<TMediumMain> = ({ isAuth, setIsAuth,
+                                              removeLocalStorageItem, addLocalStorageItem }) => {
     return <Stack align='center'>
-        <Header/>
-        <EnterScreen/>
+        <Header addLocalStorageItem={addLocalStorageItem}
+                isAuth={isAuth} setIsAuth={setIsAuth} removeLocalStorageItem={removeLocalStorageItem} />
+        <EnterScreen isAuth={isAuth} setIsAuth={setIsAuth} />
         <TrendingContainer/>
         <Stack direction='row' pb={50}>
             <RecentPostsContainer/>

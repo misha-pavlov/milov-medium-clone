@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 
-import AllTopicsPage from './AllTopicsPage';
+import OurStoryPage from './OurStoryPage';
 import {constants} from "../../config/constants";
 
-const AllTopicsPageContainer = () => {
+const OurStoryPageContainer = () => {
     const [isAuth, setIsAuth] = useState(localStorage.getItem(constants.localStorage.user) !== null);
 
     useEffect(() => {
@@ -20,8 +20,8 @@ const AllTopicsPageContainer = () => {
         localStorage.setItem(constants.localStorage.user, params);
     }
 
-    return <AllTopicsPage addLocalStorageItem={addLocalStorageItem}
-                          removeLocalStorageItem={removeLocalStorageItem} isAuth={isAuth} setIsAuth={setIsAuth} />
+    return <OurStoryPage addLocalStorageItem={addLocalStorageItem}
+                         removeLocalStorageItem={removeLocalStorageItem} isAuth={isAuth} setIsAuth={setIsAuth} />
 }
 
-export default AllTopicsPageContainer
+export default OurStoryPageContainer

@@ -16,9 +16,10 @@ type TModalLogin = {
     isOpen: boolean;
     isSignUp?: boolean;
     onClose: () => void;
+    addLocalStorageItem?: (params: string) => void;
 }
 
-const ModalLogin:React.FC<TModalLogin> = ({ isOpen, onClose, isSignUp }) => {
+const ModalLogin:React.FC<TModalLogin> = ({ isOpen, onClose, isSignUp, addLocalStorageItem }) => {
     const [stage, setStage] = useState<number>(1)
     return <Modal isOpen={isOpen} onClose={onClose}>
     <ModalOverlay />
@@ -53,7 +54,7 @@ const ModalLogin:React.FC<TModalLogin> = ({ isOpen, onClose, isSignUp }) => {
           {stage === 2 && <ModalBody>
               <BackButton onClick={() => setStage(1) }/>
               <Stack>
-                <Stage2Container onClick={() => onClose()} />
+                <Stage2Container onClick={() => onClose()} addLocalStorageItem={addLocalStorageItem} />
               </Stack>
           </ModalBody>}
 

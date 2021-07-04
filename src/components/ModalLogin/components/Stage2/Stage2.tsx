@@ -10,7 +10,8 @@ import { messages } from '../../../../config/messages';
 import { colors } from '../../../../config/colors';
 import { TStage2 } from './types';
 
-const Stage2: React.FC<TStage2> = ({ onClick, users }) => {
+const Stage2: React.FC<TStage2 & { addLocalStorageItem?: (params: string) => void }> =
+    ({ onClick, users, addLocalStorageItem }) => {
     const toast = useToast();
     const [show, setShow] = React.useState(false);
 
@@ -31,7 +32,10 @@ const Stage2: React.FC<TStage2> = ({ onClick, users }) => {
                                 title: messages.stages.successLogin,
                                 status: "success",
                                 isClosable: true,
-                            })
+                            });
+                            if (addLocalStorageItem) {
+                                addLocalStorageItem(JSON.stringify(u));
+                            }
                             onClick();
                             return 0;
                         }

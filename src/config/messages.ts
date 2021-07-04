@@ -17,7 +17,8 @@ export const messages = {
         signInText: 'Увійти з ',
         signUpText: 'Зареєструватись з ',
         write: 'Написати',
-        userName: 'ім`ям користувача'
+        userName: 'ім`ям користувача',
+        exit: 'Вийти',
     },
     goodIdea: 'Медіум - місце де завжди можна знайти хорошу ідею',
     everyIdea: 'Кожна ідея потребує Медіум',

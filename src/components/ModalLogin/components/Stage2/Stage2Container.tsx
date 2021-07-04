@@ -16,11 +16,11 @@ type dispatchPropsType = {
     getUsersList: () => void
 }
 
-type ownPropsType = TStage2;
+type ownPropsType = TStage2 & { addLocalStorageItem?: (params: string) => void };
 
 type TStage2Container = statePropsType & dispatchPropsType & ownPropsType
 
-const Stage2Container:React.FC<TStage2Container> = ({ onClick, users, getUsersList }) => {
+const Stage2Container:React.FC<TStage2Container> = ({ onClick, users, getUsersList, addLocalStorageItem }) => {
     useEffect(() => {
         (async function getUsersListFunction() {
             await getUsersList();
@@ -28,7 +28,7 @@ const Stage2Container:React.FC<TStage2Container> = ({ onClick, users, getUsersLi
     }, [getUsersList]);
 
     console.log('users = ', users)
-    return <Stage2 onClick={onClick} users={users} />
+    return <Stage2 onClick={onClick} users={users} addLocalStorageItem={addLocalStorageItem} />
 }
 
 const mapStateToProps = (state: AppStateType) => ({

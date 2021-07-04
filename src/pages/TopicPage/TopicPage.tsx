@@ -10,16 +10,20 @@ import ModalLogin from '../../components/ModalLogin/ModalLogin';
 import Footer from '../../components/Footer/Footer';
 import HeaderPost from '../../components/HeaderPost/HeaderPost';
 import GetMore from '../../components/GetMore/GetMore';
+import { TMediumMain } from '../MediumMain/MediumMain';
 
 type TTopicPage = {
     isProfilePage?: boolean;
 }
 
-const TopicPage:React.FC<TTopicPage> = ({ isProfilePage }) => {
+const TopicPage:React.FC<TTopicPage & TMediumMain> = ({ isProfilePage, isAuth,
+                                                          setIsAuth, removeLocalStorageItem,
+                                                          addLocalStorageItem }) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     return <Stack>
-        <Header/>
+        <Header addLocalStorageItem={addLocalStorageItem}
+                isAuth={isAuth} setIsAuth={setIsAuth} removeLocalStorageItem={removeLocalStorageItem} />
         <Stack justify='center' direction='row'>
             <Stack width={800} mb={50}>
                 <Stack direction='row' align='center' mb={50}>

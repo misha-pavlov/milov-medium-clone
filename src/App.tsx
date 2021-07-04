@@ -10,7 +10,7 @@ import MediumMainContainer from './pages/MediumMain/MediumMainContainer';
 import PostPageContainer from './pages/PostPage/PostPageContainer';
 import TopicPageContainer from './pages/TopicPage/TopicPageContainer';
 import AllTopicsPageContainer from './pages/AllTopicsPage/AllTopicsPageContainer';
-import OurStoryPage from './pages/OurStoryPage/OurStoryPage';
+import OurStoryPageContainer from './pages/OurStoryPage/OurStoryPageContainer';
 import Store from './redux/redux';
 
 const App = () => {
@@ -20,7 +20,7 @@ const App = () => {
         <BrowserRouter>
           <Switch>
             <Route exact path={constants.urls.medium} component={MediumMainContainer} />
-            <Route exact path={constants.urls.ourStory} component={OurStoryPage} />
+            <Route exact path={constants.urls.ourStory} component={OurStoryPageContainer} />
             <Route exact path={constants.urls.profile} component={TopicPageContainer} />
             <Route exact path={constants.urls.post} component={PostPageContainer} />
             <Route exact path={constants.urls.topic} component={TopicPageContainer} />
