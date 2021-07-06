@@ -57,5 +57,6 @@ export const messages = {
     instagram: 'Instagram',
     errorLogin: `Помилка при вводі ім'я користувача чи паролю`,
     successLogin: 'Ви успішно залогінились',
+    socialNetworks: `Соціальні мережі (не обов'язково)`,
   },
 };

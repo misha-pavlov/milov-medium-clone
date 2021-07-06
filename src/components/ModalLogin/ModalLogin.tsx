@@ -18,7 +18,6 @@ import SingInWithButtons from '../../components/SignInWithButton/SingInWithButto
 import Stage2Container from './components/Stage2/Stage2Container';
 import BackButton from './components/BackButton/BackButton';
 import Stage3 from './components/Stage3/Stage3';
-import Stage4 from './components/Stage4/Stage4';
 
 type TModalLogin = {
   isOpen: boolean;
@@ -77,16 +76,7 @@ const ModalLogin: React.FC<TModalLogin> = ({ isOpen, onClose, isSignUp, addLocal
             <ModalBody>
               <BackButton onClick={() => setStage(1)} />
               <Stack>
-                <Stage3 onClick={() => setStage(4)} />
-              </Stack>
-            </ModalBody>
-          )}
-
-          {stage === 4 && (
-            <ModalBody>
-              <BackButton onClick={() => setStage(1)} />
-              <Stack>
-                <Stage4 onClick={() => setStage(1)} />
+                <Stage3 onClick={() => onClose()} />
               </Stack>
             </ModalBody>
           )}
