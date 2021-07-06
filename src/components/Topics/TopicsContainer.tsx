@@ -4,9 +4,11 @@ import { Stack } from '@chakra-ui/react';
 import Topics from './Topics';
 
 const TopicsContainer = () => {
-    return <Stack>
-        <Topics/>
+  return (
+    <Stack>
+      <Topics />
     </Stack>
-}
+  );
+};
 
-export default TopicsContainer
+export default TopicsContainer;

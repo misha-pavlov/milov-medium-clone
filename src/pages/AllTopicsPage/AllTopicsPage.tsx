@@ -6,28 +6,32 @@ import { RecentPost } from '../../config/fonts';
 import CardTopic from './components/CardTopic';
 import { TMediumMain } from '../MediumMain/MediumMain';
 
-const AllTopicsPage:React.FC<TMediumMain> = ({ isAuth, setIsAuth,
-                                                 removeLocalStorageItem, addLocalStorageItem }) => {
-    return <Stack>
-        <Header addLocalStorageItem={addLocalStorageItem}
-                isAuth={isAuth} setIsAuth={setIsAuth} removeLocalStorageItem={removeLocalStorageItem} />
-        <Stack align='center'>
-            <Stack width={1200}>
-                <RecentPost>TopicName</RecentPost>
-                <Divider orientation="horizontal" colorScheme='green' />
+const AllTopicsPage: React.FC<TMediumMain> = ({ isAuth, removeLocalStorageItem, addLocalStorageItem }) => {
+  return (
+    <Stack>
+      <Header
+        addLocalStorageItem={addLocalStorageItem}
+        isAuth={isAuth}
+        removeLocalStorageItem={removeLocalStorageItem}
+      />
+      <Stack align="center">
+        <Stack width={1200}>
+          <RecentPost>TopicName</RecentPost>
+          <Divider orientation="horizontal" colorScheme="green" />
 
-                <Stack direction='row' wrap='wrap' justify='space-between'>
-                    <CardTopic/>
-                    <CardTopic/>
-                    <CardTopic/>
-                    <CardTopic/>
-                    <CardTopic/>
-                    <CardTopic/>
-                    <CardTopic/>
-                </Stack>
-            </Stack>
+          <Stack direction="row" wrap="wrap" justify="space-between">
+            <CardTopic />
+            <CardTopic />
+            <CardTopic />
+            <CardTopic />
+            <CardTopic />
+            <CardTopic />
+            <CardTopic />
+          </Stack>
         </Stack>
+      </Stack>
     </Stack>
-}
+  );
+};
 
-export default AllTopicsPage
+export default AllTopicsPage;

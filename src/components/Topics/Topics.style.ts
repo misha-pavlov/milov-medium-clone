@@ -1,7 +1,7 @@
 export const topicsStyle = {
-    button: {
-        marginLeft: 0,
-        marginBottom: 10,
-        marginRight: 5,
-    }
-}
+  button: {
+    marginLeft: 0,
+    marginBottom: 10,
+    marginRight: 5,
+  },
+};

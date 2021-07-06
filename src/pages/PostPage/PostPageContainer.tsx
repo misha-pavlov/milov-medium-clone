@@ -1,27 +1,15 @@
-import React, {useEffect, useState} from 'react';
-
+import React from 'react';
 import PostPage from './PostPage';
-import { constants } from '../../config/constants';
+import { TMediumMain } from '../MediumMain/MediumMain';
 
-const PostPageContainer = () => {
-    const [isAuth, setIsAuth] = useState(localStorage.getItem(constants.localStorage.user) !== null);
+const PostPageContainer: React.FC<TMediumMain> = ({ isAuth, removeLocalStorageItem, addLocalStorageItem }) => {
+  return (
+    <PostPage
+      addLocalStorageItem={addLocalStorageItem}
+      removeLocalStorageItem={removeLocalStorageItem}
+      isAuth={isAuth}
+    />
+  );
+};
 
-    useEffect(() => {
-        setIsAuth(localStorage.getItem(constants.localStorage.user) !== null)
-    }, [localStorage.getItem(constants.localStorage.user)]);
-
-    const removeLocalStorageItem = () => {
-        setIsAuth(false);
-        localStorage.removeItem(constants.localStorage.user);
-    }
-
-    const addLocalStorageItem = (params: string) => {
-        setIsAuth(true);
-        localStorage.setItem(constants.localStorage.user, params);
-    }
-
-    return <PostPage addLocalStorageItem={addLocalStorageItem}
-                     removeLocalStorageItem={removeLocalStorageItem} isAuth={isAuth} setIsAuth={setIsAuth} />
-}
-
-export default PostPageContainer
+export default PostPageContainer;

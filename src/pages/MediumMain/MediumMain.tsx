@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stack } from '@chakra-ui/react';
 
-import Header from '../../components/Header/Header'
+import Header from '../../components/Header/Header';
 import EnterScreen from './components/EnterScreen/EnterScreen';
 import TrendingContainer from '../../components/Trending/TrendingContainer';
 import RecentPostsContainer from '../../components/RecentPosts/RecentPostsContainer';
@@ -9,26 +9,28 @@ import TopicsContainer from '../../components/Topics/TopicsContainer';
 import Footer from '../../components/Footer/Footer';
 
 export type TMediumMain = {
-    isAuth: boolean;
-    setIsAuth: (isAuth: boolean) => void;
-    removeLocalStorageItem?: () => void;
-    addLocalStorageItem?: (params: string) => void;
-}
+  isAuth: boolean;
+  removeLocalStorageItem?: () => void;
+  addLocalStorageItem?: (params: string) => void;
+};
 
-
-const MediumMain:React.FC<TMediumMain> = ({ isAuth, setIsAuth,
-                                              removeLocalStorageItem, addLocalStorageItem }) => {
-    return <Stack align='center'>
-        <Header addLocalStorageItem={addLocalStorageItem}
-                isAuth={isAuth} setIsAuth={setIsAuth} removeLocalStorageItem={removeLocalStorageItem} />
-        <EnterScreen isAuth={isAuth} setIsAuth={setIsAuth} />
-        <TrendingContainer/>
-        <Stack direction='row' pb={50}>
-            <RecentPostsContainer/>
-            <TopicsContainer/>
-        </Stack>
-        <Footer/>
+const MediumMain: React.FC<TMediumMain> = ({ isAuth, removeLocalStorageItem, addLocalStorageItem }) => {
+  return (
+    <Stack align="center">
+      <Header
+        addLocalStorageItem={addLocalStorageItem}
+        isAuth={isAuth}
+        removeLocalStorageItem={removeLocalStorageItem}
+      />
+      <EnterScreen isAuth={isAuth} />
+      <TrendingContainer />
+      <Stack direction="row" pb={50}>
+        <RecentPostsContainer />
+        <TopicsContainer />
+      </Stack>
+      <Footer />
     </Stack>
-}
+  );
+};
 
-export default MediumMain
+export default MediumMain;

@@ -8,35 +8,35 @@ import TopicItem from './TopicItem';
 import { constants } from '../../config/constants';
 
 const Topics = () => {
-    const history = useHistory();
+  const history = useHistory();
 
-    const goToAllTopic = () => {
-        history.push(constants.urls.topics);
-    }
+  const goToAllTopic = () => {
+    history.push(constants.urls.topics);
+  };
 
-    return <Stack width={400} mt={10}>
-        <DefaultText>
-            {messages.topic}
-        </DefaultText>
+  return (
+    <Stack width={400} mt={10}>
+      <DefaultText>{messages.topic}</DefaultText>
 
-        <Stack mt={30} direction='row' wrap='wrap'>
-            <TopicItem/>
-            <TopicItem/>
-            <TopicItem/>
-            <TopicItem/>
-            <TopicItem/>
-            <TopicItem/>
-            <TopicItem/>
-            <TopicItem/>
-            <TopicItem/>
-        </Stack>
+      <Stack mt={30} direction="row" wrap="wrap">
+        <TopicItem />
+        <TopicItem />
+        <TopicItem />
+        <TopicItem />
+        <TopicItem />
+        <TopicItem />
+        <TopicItem />
+        <TopicItem />
+        <TopicItem />
+      </Stack>
 
-        <Stack>
-            <Button width={71} variant='link' colorScheme='green' onClick={goToAllTopic}>
-                {messages.allTopics}
-            </Button>
-        </Stack>
+      <Stack>
+        <Button width={71} variant="link" colorScheme="green" onClick={goToAllTopic}>
+          {messages.allTopics}
+        </Button>
+      </Stack>
     </Stack>
-}
+  );
+};
 
-export default Topics
+export default Topics;

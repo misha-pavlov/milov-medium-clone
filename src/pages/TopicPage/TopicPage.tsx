@@ -13,43 +13,50 @@ import GetMore from '../../components/GetMore/GetMore';
 import { TMediumMain } from '../MediumMain/MediumMain';
 
 type TTopicPage = {
-    isProfilePage?: boolean;
-}
+  isProfilePage?: boolean;
+};
 
-const TopicPage:React.FC<TTopicPage & TMediumMain> = ({ isProfilePage, isAuth,
-                                                          setIsAuth, removeLocalStorageItem,
-                                                          addLocalStorageItem }) => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
+const TopicPage: React.FC<TTopicPage & TMediumMain> = ({
+  isProfilePage,
+  isAuth,
+  removeLocalStorageItem,
+  addLocalStorageItem,
+}) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
-    return <Stack>
-        <Header addLocalStorageItem={addLocalStorageItem}
-                isAuth={isAuth} setIsAuth={setIsAuth} removeLocalStorageItem={removeLocalStorageItem} />
-        <Stack justify='center' direction='row'>
-            <Stack width={800} mb={50}>
-                <Stack direction='row' align='center' mb={50}>
-                    {isProfilePage ? <HeaderPost isPostPage isProfilePage />
-                        : <RecentPost isTopicPage>TopicName</RecentPost>}
-                    {!isProfilePage && <FollowButton onClick={onOpen} />}
-                </Stack>
-                <RecentPostsItem/>
-                <RecentPostsItem/>
-                <RecentPostsItem/>
-                <RecentPostsItem/>
-                <RecentPostsItem/>
-                <RecentPostsItem/>
-                <RecentPostsItem/>
-                <GetMore/>
-            </Stack>
-
-            <Stack width={375}>
-                <Stack mt={50}>
-                    <TopicsContainer/>
-                </Stack>
-            </Stack>
+  return (
+    <Stack>
+      <Header
+        addLocalStorageItem={addLocalStorageItem}
+        isAuth={isAuth}
+        removeLocalStorageItem={removeLocalStorageItem}
+      />
+      <Stack justify="center" direction="row">
+        <Stack width={800} mb={50}>
+          <Stack direction="row" align="center" mb={50}>
+            {isProfilePage ? <HeaderPost isPostPage isProfilePage /> : <RecentPost isTopicPage>TopicName</RecentPost>}
+            {!isProfilePage && <FollowButton onClick={onOpen} />}
+          </Stack>
+          <RecentPostsItem />
+          <RecentPostsItem />
+          <RecentPostsItem />
+          <RecentPostsItem />
+          <RecentPostsItem />
+          <RecentPostsItem />
+          <RecentPostsItem />
+          <GetMore />
         </Stack>
-        <ModalLogin isOpen={isOpen} onClose={onClose} isSignUp />
-        <Footer/>
-    </Stack>
-}
 
-export default TopicPage
+        <Stack width={375}>
+          <Stack mt={50}>
+            <TopicsContainer />
+          </Stack>
+        </Stack>
+      </Stack>
+      <ModalLogin isOpen={isOpen} onClose={onClose} isSignUp />
+      <Footer />
+    </Stack>
+  );
+};
+
+export default TopicPage;

@@ -9,33 +9,31 @@ import { getUsersList, TUsers } from '../../../../redux/reducers/UsersReducer';
 import { getUsers } from '../../../../redux/selectors/UsersSelector';
 
 type statePropsType = {
-    users: Array<TUsers>
-}
+  users: Array<TUsers>;
+};
 
 type dispatchPropsType = {
-    getUsersList: () => void
-}
+  getUsersList: () => void;
+};
 
 type ownPropsType = TStage2 & { addLocalStorageItem?: (params: string) => void };
 
-type TStage2Container = statePropsType & dispatchPropsType & ownPropsType
+type TStage2Container = statePropsType & dispatchPropsType & ownPropsType;
 
-const Stage2Container:React.FC<TStage2Container> = ({ onClick, users, getUsersList, addLocalStorageItem }) => {
-    useEffect(() => {
-        (async function getUsersListFunction() {
-            await getUsersList();
-        })();
-    }, [getUsersList]);
+const Stage2Container: React.FC<TStage2Container> = ({ onClick, users, getUsersList, addLocalStorageItem }) => {
+  useEffect(() => {
+    (async function getUsersListFunction() {
+      await getUsersList();
+    })();
+  }, [getUsersList]);
 
-    console.log('users = ', users)
-    return <Stage2 onClick={onClick} users={users} addLocalStorageItem={addLocalStorageItem} />
-}
+  return <Stage2 onClick={onClick} users={users} addLocalStorageItem={addLocalStorageItem} />;
+};
 
 const mapStateToProps = (state: AppStateType) => ({
-    users: getUsers(state)
+  users: getUsers(state),
 });
 
 export default compose(
-    connect<statePropsType, dispatchPropsType, ownPropsType, AppStateType>(mapStateToProps,
-        { getUsersList })
-)(Stage2Container)
+  connect<statePropsType, dispatchPropsType, ownPropsType, AppStateType>(mapStateToProps, { getUsersList }),
+)(Stage2Container);

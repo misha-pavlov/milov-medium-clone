@@ -1,27 +1,15 @@
-import React, {useEffect, useState} from 'react';
-
+import React from 'react';
 import OurStoryPage from './OurStoryPage';
-import {constants} from "../../config/constants";
+import { TMediumMain } from '../MediumMain/MediumMain';
 
-const OurStoryPageContainer = () => {
-    const [isAuth, setIsAuth] = useState(localStorage.getItem(constants.localStorage.user) !== null);
+const OurStoryPageContainer: React.FC<TMediumMain> = ({ isAuth, removeLocalStorageItem, addLocalStorageItem }) => {
+  return (
+    <OurStoryPage
+      addLocalStorageItem={addLocalStorageItem}
+      removeLocalStorageItem={removeLocalStorageItem}
+      isAuth={isAuth}
+    />
+  );
+};
 
-    useEffect(() => {
-        setIsAuth(localStorage.getItem(constants.localStorage.user) !== null)
-    }, [localStorage.getItem(constants.localStorage.user)]);
-
-    const removeLocalStorageItem = () => {
-        setIsAuth(false);
-        localStorage.removeItem(constants.localStorage.user);
-    }
-
-    const addLocalStorageItem = (params: string) => {
-        setIsAuth(true);
-        localStorage.setItem(constants.localStorage.user, params);
-    }
-
-    return <OurStoryPage addLocalStorageItem={addLocalStorageItem}
-                         removeLocalStorageItem={removeLocalStorageItem} isAuth={isAuth} setIsAuth={setIsAuth} />
-}
-
-export default OurStoryPageContainer
+export default OurStoryPageContainer;

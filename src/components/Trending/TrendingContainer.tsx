@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import Trending from './Trending'
+import Trending from './Trending';
 
 const TrendingContainer = () => {
-    return <Trending />
-}
+  return <Trending />;
+};
 
-export default TrendingContainer
+export default TrendingContainer;

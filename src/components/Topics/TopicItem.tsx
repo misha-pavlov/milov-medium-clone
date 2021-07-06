@@ -6,20 +6,17 @@ import { topicsStyle } from './Topics.style';
 import { constants } from '../../config/constants';
 
 const TopicItem = () => {
-    const history = useHistory();
+  const history = useHistory();
 
-    const goToTopic = () => {
-        history.push(constants.urls.topic);
-    }
+  const goToTopic = () => {
+    history.push(constants.urls.topic);
+  };
 
-    return <Button
-        variant='outline'
-        colorScheme='green'
-        width={125}
-        style={topicsStyle.button}
-        onClick={goToTopic}>
-        Topic
+  return (
+    <Button variant="outline" colorScheme="green" width={125} style={topicsStyle.button} onClick={goToTopic}>
+      Topic
     </Button>
-}
+  );
+};
 
-export default TopicItem
+export default TopicItem;

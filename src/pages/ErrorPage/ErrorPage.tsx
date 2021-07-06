@@ -8,31 +8,25 @@ import { ErrorPageBlock, Text404, TextPageNotFound, TextBlock } from './ErrorPag
 import { messages } from '../../config/messages';
 
 const ErrorPage = () => {
-    const history = useHistory();
+  const history = useHistory();
 
-    return <ErrorPageBlock>
-        <Stack flexDirection='row' justifyContent='center' alignItems='center'>
-            <Image
-                objectFit="cover"
-                src={ErrorImage}
-                alt="Error image"
-            />
+  return (
+    <ErrorPageBlock>
+      <Stack flexDirection="row" justifyContent="center" alignItems="center">
+        <Image objectFit="cover" src={ErrorImage} alt="Error image" />
 
-            <TextBlock>
-                <Text404>
-                    404
-                </Text404>
+        <TextBlock>
+          <Text404>404</Text404>
 
-                <TextPageNotFound>
-                    {messages.error.pageNotFound}
-                </TextPageNotFound>
+          <TextPageNotFound>{messages.error.pageNotFound}</TextPageNotFound>
 
-                <Button leftIcon={<ArrowBackIcon />} onClick={history.goBack} colorScheme="teal" variant="solid">
-                    {messages.buttons.back}
-                </Button>
-            </TextBlock>
-        </Stack>
+          <Button leftIcon={<ArrowBackIcon />} onClick={history.goBack} colorScheme="teal" variant="solid">
+            {messages.buttons.back}
+          </Button>
+        </TextBlock>
+      </Stack>
     </ErrorPageBlock>
-}
+  );
+};
 
-export default ErrorPage
+export default ErrorPage;

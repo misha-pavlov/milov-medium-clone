@@ -7,20 +7,22 @@ import { messages } from '../../config/messages';
 import GetMore from '../GetMore/GetMore';
 
 const RecentPosts = () => {
-    return <Stack width={800}>
-        <RecentPost>{messages.recentPost}</RecentPost>
-        <RecentPostsItem/>
-        <RecentPostsItem/>
-        <RecentPostsItem/>
-        <RecentPostsItem/>
-        <RecentPostsItem/>
-        <RecentPostsItem/>
-        <RecentPostsItem/>
-        <RecentPostsItem/>
-        <RecentPostsItem/>
-        <RecentPostsItem/>
-        <GetMore/>
+  return (
+    <Stack width={800}>
+      <RecentPost>{messages.recentPost}</RecentPost>
+      <RecentPostsItem />
+      <RecentPostsItem />
+      <RecentPostsItem />
+      <RecentPostsItem />
+      <RecentPostsItem />
+      <RecentPostsItem />
+      <RecentPostsItem />
+      <RecentPostsItem />
+      <RecentPostsItem />
+      <RecentPostsItem />
+      <GetMore />
     </Stack>
-}
+  );
+};
 
-export default RecentPosts
+export default RecentPosts;
