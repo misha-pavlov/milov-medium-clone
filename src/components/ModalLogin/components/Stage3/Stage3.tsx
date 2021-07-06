@@ -2,10 +2,6 @@ import React from 'react';
 import { Button, Input, InputGroup, InputLeftElement, InputRightElement, Stack } from '@chakra-ui/react';
 import { AtSignIcon, LockIcon, LinkIcon } from '@chakra-ui/icons';
 import { useFormik } from 'formik';
-
-import { messages } from '../../../../config/messages';
-import { colors } from '../../../../config/colors';
-import { DefaultText } from '../../../../config/fonts';
 import {
   FacebookOutlined,
   GithubOutlined,
@@ -14,11 +10,12 @@ import {
   TwitterOutlined,
 } from '@ant-design/icons';
 
-type TStage3 = {
-  onClick: () => void;
-};
+import { messages } from '../../../../config/messages';
+import { colors } from '../../../../config/colors';
+import { DefaultText } from '../../../../config/fonts';
+import { TStage3 } from './types';
 
-const Stage3: React.FC<TStage3> = ({ onClick }) => {
+const Stage3: React.FC<TStage3> = ({ onClick, addUser }) => {
   const [show, setShow] = React.useState(false);
   const [showR, setShowR] = React.useState(false);
   const handleClick = () => setShow(!show);
@@ -38,6 +35,18 @@ const Stage3: React.FC<TStage3> = ({ onClick }) => {
     },
     onSubmit: values => {
       alert(JSON.stringify(values, null, 2));
+      if (addUser) {
+        addUser(
+          values.userName,
+          values.password,
+          values.twitter,
+          values.gitHub,
+          values.linkedin,
+          values.facebook,
+          values.instagram,
+          values.photo,
+        );
+      }
       onClick();
     },
   });

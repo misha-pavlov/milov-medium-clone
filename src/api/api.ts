@@ -28,5 +28,8 @@ export const userAPI = {
     photo?: string,
   ) {
     const user = `http://localhost:3000/users`;
+    return axios
+      .post(user, { userName, password, twitter, gitHub, linkedin, facebook, instagram, photo })
+      .then(response => response.data);
   },
 };

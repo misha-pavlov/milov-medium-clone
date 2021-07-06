@@ -85,9 +85,9 @@ export const actionsUsers = {
 };
 
 // Thunks
-type ThunkWeatherType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypesUsers>;
+type ThunkUserType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypesUsers>;
 
-export const getUsersList = (): ThunkWeatherType => {
+export const getUsersList = (): ThunkUserType => {
   return async dispatch => {
     const response = await userAPI.getUsers();
     for (const entry of response) {
@@ -105,6 +105,31 @@ export const getUsersList = (): ThunkWeatherType => {
         ),
       );
     }
+  };
+};
+
+export const addUser = (
+  userName: string,
+  password: string,
+  twitter?: string,
+  gitHub?: string,
+  linkedin?: string,
+  facebook?: string,
+  instagram?: string,
+  photo?: string,
+): ThunkUserType => {
+  return async dispatch => {
+    const response = await userAPI.signUpUser(
+      userName,
+      password,
+      twitter,
+      gitHub,
+      linkedin,
+      facebook,
+      instagram,
+      photo,
+    );
+    console.log(response);
   };
 };
 
