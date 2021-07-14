@@ -59,6 +59,13 @@ const PostsReducer = (state = initialState, action: ActionsTypesPosts): initialS
       };
     }
 
+    case constants.reducers.CLEAR_SEARCH_POSTS: {
+      return {
+        ...state,
+        searchPosts: [],
+      };
+    }
+
     case constants.reducers.SEARCH_POSTS: {
       return {
         ...state,
@@ -110,6 +117,11 @@ export const actionsPosts = {
       type: constants.reducers.CLEAR_POSTS,
     } as const),
 
+  clearSearchPosts: () =>
+    ({
+      type: constants.reducers.CLEAR_SEARCH_POSTS,
+    } as const),
+
   searchPosts: (
     _id: string,
     name: string,
@@ -148,7 +160,7 @@ export const getRecentPostsList = (): ThunkPostType => {
 export const searchPostsList = (postName: string): ThunkPostType => {
   return async dispatch => {
     const response = await postAPI.getPostsByName(postName);
-    dispatch(actionsPosts.clearPosts());
+    dispatch(actionsPosts.clearSearchPosts());
     for (const entry of response) {
       dispatch(
         actionsPosts.searchPosts(

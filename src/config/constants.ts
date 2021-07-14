@@ -24,6 +24,7 @@ export const constants = {
 
     SET_POST: 'SET_POST',
     CLEAR_POSTS: 'CLEAR_POSTS',
+    CLEAR_SEARCH_POSTS: 'CLEAR_SEARCH_POSTS',
     SEARCH_POSTS: 'SEARCH_POSTS',
   },
 
