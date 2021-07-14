@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { TUsers } from '../redux/reducers/UsersReducer';
+import { TPosts } from '../redux/reducers/PostsReducer';
 
 export const userAPI = {
   getUsers() {
@@ -26,6 +27,11 @@ export const userAPI = {
 export const postAPI = {
   getPosts() {
     const posts = `http://localhost:3000/posts`;
-    return axios.get<Array<any>>(posts).then(response => response.data);
+    return axios.get<Array<TPosts>>(posts).then(response => response.data);
+  },
+
+  getPostsByName(postName: string) {
+    const posts = `http://localhost:3000/posts/post-by-name/${postName}`;
+    return axios.get<Array<TPosts>>(posts).then(response => response.data);
   },
 };

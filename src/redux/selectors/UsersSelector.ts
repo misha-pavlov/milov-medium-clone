@@ -7,3 +7,7 @@ export const getUsers = (state: AppStateType) => {
 export const getRecentPosts = (state: AppStateType) => {
   return state.postsReducer.posts;
 };
+
+export const getSearchPosts = (state: AppStateType) => {
+  return state.postsReducer.searchPosts;
+};

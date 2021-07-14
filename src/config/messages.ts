@@ -59,4 +59,5 @@ export const messages = {
     successLogin: 'Ви успішно залогінились',
     socialNetworks: `Соціальні мережі (не обов'язково)`,
   },
+  emptySearchList: 'Пошук пустий',
 };

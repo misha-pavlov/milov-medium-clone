@@ -16,23 +16,32 @@ import { useFormik } from 'formik';
 
 import { colors } from '../../../config/colors';
 import RecentPostsItem from '../../RecentPosts/RecentPostsItem';
-import { searchPostsStyles } from './SearchPosts.styles';
+import { SearchEmptyList, searchPostsStyles } from './SearchPosts.styles';
+import { TPosts } from '../../../redux/reducers/PostsReducer';
+import { messages } from '../../../config/messages';
 
-type TSearchPosts = {
+export type TSearchPosts = {
   isOpen: boolean;
+  searchPosts: Array<TPosts>;
+
+  searchPostsList: (postName: string) => void;
   onClose: () => void;
 };
 
-const SearchPosts: React.FC<TSearchPosts> = ({ isOpen, onClose }) => {
+const SearchPosts: React.FC<TSearchPosts> = ({ isOpen, onClose, searchPosts, searchPostsList }) => {
+  const searchRecentPostsList = searchPosts.map(s => (
+    <RecentPostsItem key={s._id} name={s.name} date={s.date} timeToRead={s.timeToRead} image={s.image} isSearchPosts />
+  ));
+
   const formik = useFormik({
     initialValues: {
       searchInput: '',
     },
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+      searchPostsList(values.searchInput);
     },
   });
-
+  console.log(searchRecentPostsList.length);
   return (
     <Modal isOpen={isOpen} onClose={onClose} size={'full'}>
       <ModalOverlay />
@@ -59,11 +68,11 @@ const SearchPosts: React.FC<TSearchPosts> = ({ isOpen, onClose }) => {
         </ModalCloseButton>
 
         <ModalBody>
-          <Stack align="center">
-            <RecentPostsItem name="" image="" timeToRead="" date="" isSearchPosts />
-            <RecentPostsItem name="" image="" timeToRead="" date="" isSearchPosts />
-            <RecentPostsItem name="" image="" timeToRead="" date="" isSearchPosts />
-          </Stack>
+          {searchRecentPostsList.length === 0 ? (
+            <SearchEmptyList>{messages.emptySearchList}</SearchEmptyList>
+          ) : (
+            <Stack align="center">{searchRecentPostsList}</Stack>
+          )}
         </ModalBody>
       </ModalContent>
     </Modal>

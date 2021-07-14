@@ -8,7 +8,7 @@ import logo from '../../assets/icons/medium.svg';
 import { constants } from '../../config/constants';
 import { messages } from '../../config/messages';
 import ModalLogin from '../ModalLogin/ModalLogin';
-import SearchPosts from './components/SearchPosts';
+import SearchPostsContainer from './components/SearchPostsContainer';
 import { TMediumMain } from '../../pages/MediumMain/MediumMain';
 
 const Header: React.FC<TMediumMain> = ({ isAuth, removeLocalStorageItem, addLocalStorageItem }) => {
@@ -23,7 +23,7 @@ const Header: React.FC<TMediumMain> = ({ isAuth, removeLocalStorageItem, addLoca
         </NavLink>
 
         <ModalLogin isOpen={isOpen} onClose={onClose} addLocalStorageItem={addLocalStorageItem} />
-        <SearchPosts isOpen={isOpenSearchMode} onClose={onCloseSearchMode} />
+        <SearchPostsContainer isOpen={isOpenSearchMode} onClose={onCloseSearchMode} />
 
         <Stack direction="row" justify="space-between" align="center" spacing={5}>
           <Li>
