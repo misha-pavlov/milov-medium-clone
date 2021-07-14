@@ -16,10 +16,6 @@ export type TPosts = {
   __v: number;
 };
 
-export type initialStateType = {
-  posts: Array<TPosts>;
-};
-
 const initialState: initialStateType = {
   posts: [],
 };
@@ -32,17 +28,32 @@ const PostsReducer = (state = initialState, action: ActionsTypesPosts): initialS
         posts: [
           ...state.posts,
           {
+            // @ts-ignore
             _id: action._id,
+            // @ts-ignore
             name: action.name,
+            // @ts-ignore
             image: action.image,
+            // @ts-ignore
             topic: action.topic,
+            // @ts-ignore
             postCreator: action.postCreator,
+            // @ts-ignore
             date: action.date,
+            // @ts-ignore
             timeToRead: action.timeToRead,
+            // @ts-ignore
             post: action.post,
             __v: 0,
           },
         ],
+      };
+    }
+
+    case constants.reducers.CLEAR_POSTS: {
+      return {
+        ...state,
+        posts: [],
       };
     }
 
@@ -52,10 +63,8 @@ const PostsReducer = (state = initialState, action: ActionsTypesPosts): initialS
 };
 
 // AC
-type ActionsTypesPosts = InferActionsTypes<typeof actionsPosts>;
-
 export const actionsPosts = {
-  setPost: function (
+  setPost: (
     _id: string,
     name: string,
     image: string,
@@ -64,27 +73,19 @@ export const actionsPosts = {
     date: string,
     timeToRead: string,
     post: string,
-  ) {
-    return {
-      type: constants.reducers.SET_POST,
-      _id,
-      name,
-      image,
-      topic,
-      postCreator,
-      date,
-      timeToRead,
-      post,
-    } as const;
-  },
+  ) => ({ type: constants.reducers.SET_POST, _id, name, image, topic, postCreator, date, timeToRead, post } as const),
+
+  clearPosts: () =>
+    ({
+      type: constants.reducers.CLEAR_POSTS,
+    } as const),
 };
 
 // Thunks
-type ThunkPostType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypesPosts>;
-
 export const getRecentPostsList = (): ThunkPostType => {
   return async dispatch => {
     const response = await postAPI.getPosts();
+    dispatch(actionsPosts.clearPosts());
     for (const entry of response) {
       dispatch(
         actionsPosts.setPost(
@@ -103,3 +104,9 @@ export const getRecentPostsList = (): ThunkPostType => {
 };
 
 export default PostsReducer;
+
+export type initialStateType = {
+  posts: Array<TPosts>;
+};
+type ActionsTypesPosts = InferActionsTypes<typeof actionsPosts>;
+type ThunkPostType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypesPosts>;

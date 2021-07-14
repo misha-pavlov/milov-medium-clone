@@ -60,9 +60,9 @@ const SearchPosts: React.FC<TSearchPosts> = ({ isOpen, onClose }) => {
 
         <ModalBody>
           <Stack align="center">
-            <RecentPostsItem isSearchPosts />
-            <RecentPostsItem isSearchPosts />
-            <RecentPostsItem isSearchPosts />
+            <RecentPostsItem name="" image="" timeToRead="" date="" isSearchPosts />
+            <RecentPostsItem name="" image="" timeToRead="" date="" isSearchPosts />
+            <RecentPostsItem name="" image="" timeToRead="" date="" isSearchPosts />
           </Stack>
         </ModalBody>
       </ModalContent>

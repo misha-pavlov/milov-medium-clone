@@ -37,13 +37,11 @@ const TopicPage: React.FC<TTopicPage & TMediumMain> = ({
             {isProfilePage ? <HeaderPost isPostPage isProfilePage /> : <RecentPost isTopicPage>TopicName</RecentPost>}
             {!isProfilePage && <FollowButton onClick={onOpen} />}
           </Stack>
-          <RecentPostsItem />
-          <RecentPostsItem />
-          <RecentPostsItem />
-          <RecentPostsItem />
-          <RecentPostsItem />
-          <RecentPostsItem />
-          <RecentPostsItem />
+          <RecentPostsItem name="" image="" timeToRead="" date="" />
+          <RecentPostsItem name="" image="" timeToRead="" date="" />
+          <RecentPostsItem name="" image="" timeToRead="" date="" />
+          <RecentPostsItem name="" image="" timeToRead="" date="" />
+          <RecentPostsItem name="" image="" timeToRead="" date="" />
           <GetMore />
         </Stack>
 

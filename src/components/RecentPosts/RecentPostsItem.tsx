@@ -1,6 +1,5 @@
 import React from 'react';
-import { Stack, Image, useDisclosure, Button } from '@chakra-ui/react';
-import { BookOutlined } from '@ant-design/icons';
+import { Stack, Image, useDisclosure } from '@chakra-ui/react';
 import { useHistory } from 'react-router-dom';
 
 import { DefaultText, PostDateTime } from '../../config/fonts';
@@ -8,14 +7,17 @@ import HeaderPost from '../HeaderPost/HeaderPost';
 import ModalLogin from '../ModalLogin/ModalLogin';
 import { constants } from '../../config/constants';
 import { stylesRecentPosts } from './RecentPosts.styles';
-import { colors } from '../../config/colors';
 
 type TRecentPostsItem = {
   isSearchPosts?: boolean;
+  name: string;
+  date: string;
+  timeToRead: string;
+  image: string;
 };
 
-const RecentPostsItem: React.FC<TRecentPostsItem> = ({ isSearchPosts }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+const RecentPostsItem: React.FC<TRecentPostsItem> = ({ isSearchPosts, name, date, timeToRead, image }) => {
+  const { isOpen, onClose } = useDisclosure();
   const history = useHistory();
 
   const goToPost = () => {
@@ -32,24 +34,17 @@ const RecentPostsItem: React.FC<TRecentPostsItem> = ({ isSearchPosts }) => {
       <Stack width={450}>
         <HeaderPost />
         <Stack onClick={goToPost} cursor="pointer">
-          <DefaultText isBold>How sex help you in life!</DefaultText>
+          <DefaultText isBold>{name}</DefaultText>
         </Stack>
         <Stack direction="row" justify="space-between">
-          <PostDateTime>Date • Time</PostDateTime>
-          <Button variant="ghost" _hover={{ bg: colors.white2 }} disabled={true}>
-            <BookOutlined style={stylesRecentPosts.saveIcon} onClick={onOpen} />
-          </Button>
+          <PostDateTime>
+            {date} • {timeToRead}
+          </PostDateTime>
         </Stack>
       </Stack>
 
       <Stack>
-        <Image
-          objectFit="fill"
-          src={'https://www.w3bai.com/css/lights600x400.jpg'}
-          alt="postImage"
-          height={134}
-          maxWidth={200}
-        />
+        <Image objectFit="fill" src={image} alt="postImage" height={134} maxWidth={200} />
       </Stack>
       <ModalLogin isOpen={isOpen} onClose={onClose} isSignUp />
     </Stack>

@@ -21,7 +21,7 @@ type TRecentPostsContainer = statePropsType & dispatchPropsType & ownPropsType;
 
 const RecentPostsContainer: React.FC<TRecentPostsContainer> = ({ posts, getRecentPostsList }) => {
   useEffect(() => {
-    (async function getUsersListFunction() {
+    (async function getRecentPostsListFunction() {
       await getRecentPostsList();
     })();
   }, [getRecentPostsList]);

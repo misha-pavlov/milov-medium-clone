@@ -23,6 +23,7 @@ export const constants = {
     ADD_USER: 'ADD_USER',
 
     SET_POST: 'SET_POST',
+    CLEAR_POSTS: 'CLEAR_POSTS',
   },
 
   localStorage: {

@@ -12,20 +12,14 @@ type TRecentPosts = {
 };
 
 const RecentPosts: React.FC<TRecentPosts> = ({ posts }) => {
-  console.log(posts);
+  const postsList = posts.map(p => (
+    <RecentPostsItem key={p._id} name={p.name} date={p.date} timeToRead={p.timeToRead} image={p.image} />
+  ));
+
   return (
     <Stack width={800}>
       <RecentPost>{messages.recentPost}</RecentPost>
-      <RecentPostsItem />
-      <RecentPostsItem />
-      <RecentPostsItem />
-      <RecentPostsItem />
-      <RecentPostsItem />
-      <RecentPostsItem />
-      <RecentPostsItem />
-      <RecentPostsItem />
-      <RecentPostsItem />
-      <RecentPostsItem />
+      {postsList}
       <GetMore />
     </Stack>
   );

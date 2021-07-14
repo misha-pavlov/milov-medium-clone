@@ -25,7 +25,7 @@ export const userAPI = {
 
 export const postAPI = {
   getPosts() {
-    const posts = `http://lolhost:3000/posts`;
+    const posts = `http://localhost:3000/posts`;
     return axios.get<Array<any>>(posts).then(response => response.data);
   },
 };
