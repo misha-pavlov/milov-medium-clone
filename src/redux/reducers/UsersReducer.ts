@@ -1,7 +1,7 @@
 import { AppStateType, InferActionsTypes } from '../redux';
 import { ThunkAction } from 'redux-thunk';
-import { userAPI } from '../../api/api';
 
+import { userAPI } from '../../api/api';
 import { constants } from '../../config/constants';
 
 export type TUsers = {
@@ -58,7 +58,7 @@ const UsersReducer = (state = initialState, action: ActionsTypesUsers): initialS
 type ActionsTypesUsers = InferActionsTypes<typeof actionsUsers>;
 
 export const actionsUsers = {
-  setUsers: function (
+  setUser: function (
     _id: string,
     userName: string,
     password: string,
@@ -92,7 +92,7 @@ export const getUsersList = (): ThunkUserType => {
     const response = await userAPI.getUsers();
     for (const entry of response) {
       dispatch(
-        actionsUsers.setUsers(
+        actionsUsers.setUser(
           entry._id,
           entry.userName,
           entry.password,
@@ -119,17 +119,7 @@ export const addUser = (
   photo?: string,
 ): ThunkUserType => {
   return async dispatch => {
-    const response = await userAPI.signUpUser(
-      userName,
-      password,
-      twitter,
-      gitHub,
-      linkedin,
-      facebook,
-      instagram,
-      photo,
-    );
-    console.log(response);
+    await userAPI.signUpUser(userName, password, twitter, gitHub, linkedin, facebook, instagram, photo);
   };
 };
 

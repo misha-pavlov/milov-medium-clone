@@ -2,9 +2,11 @@ import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
 import UsersReducer from './reducers/UsersReducer';
+import PostsReducer from './reducers/PostsReducer';
 
 const reducersBox = combineReducers({
   usersReducer: UsersReducer,
+  postsReducer: PostsReducer,
 });
 
 type rootReducerType = typeof reducersBox;

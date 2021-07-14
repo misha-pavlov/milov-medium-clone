@@ -34,7 +34,6 @@ const Stage3: React.FC<TStage3> = ({ onClick, addUser }) => {
       instagram: '',
     },
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
       if (addUser) {
         addUser(
           values.userName,

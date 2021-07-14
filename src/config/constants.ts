@@ -21,6 +21,8 @@ export const constants = {
   reducers: {
     SET_USER: 'SET_USER',
     ADD_USER: 'ADD_USER',
+
+    SET_POST: 'SET_POST',
   },
 
   localStorage: {
