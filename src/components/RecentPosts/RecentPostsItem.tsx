@@ -14,9 +14,10 @@ type TRecentPostsItem = {
   date: string;
   timeToRead: string;
   image: string;
+  user: string;
 };
 
-const RecentPostsItem: React.FC<TRecentPostsItem> = ({ isSearchPosts, name, date, timeToRead, image }) => {
+const RecentPostsItem: React.FC<TRecentPostsItem> = ({ isSearchPosts, user, name, date, timeToRead, image }) => {
   const { isOpen, onClose } = useDisclosure();
   const history = useHistory();
 
@@ -32,7 +33,7 @@ const RecentPostsItem: React.FC<TRecentPostsItem> = ({ isSearchPosts, name, date
       align="center"
       style={isSearchPosts ? stylesRecentPosts.body : {}}>
       <Stack width={450}>
-        <HeaderPost />
+        <HeaderPost user={user} />
         <Stack onClick={goToPost} cursor="pointer">
           <DefaultText isBold>{name}</DefaultText>
         </Stack>

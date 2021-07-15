@@ -16,7 +16,8 @@ import { messages } from '../../config/messages';
 
 type TTopicPage = {
   isProfilePage?: boolean;
-  ukr: string;
+  ukr?: string;
+  postCreator?: string;
   searchPosts: Array<TPosts>;
 };
 
@@ -27,10 +28,18 @@ const TopicPage: React.FC<TTopicPage & TMediumMain> = ({
   addLocalStorageItem,
   searchPosts,
   ukr,
+  postCreator,
 }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const topicPostsList = searchPosts.map(s => (
-    <RecentPostsItem key={s._id} name={s.name} date={s.date} timeToRead={s.timeToRead} image={s.image} />
+  const postsList = searchPosts.map(t => (
+    <RecentPostsItem
+      key={t._id}
+      user={t.postCreator}
+      name={t.name}
+      date={t.date}
+      timeToRead={t.timeToRead}
+      image={t.image}
+    />
   ));
 
   return (
@@ -43,13 +52,17 @@ const TopicPage: React.FC<TTopicPage & TMediumMain> = ({
       <Stack justify="center" direction="row" style={{ minHeight: '80vh' }}>
         <Stack width={800} mb={50}>
           <Stack direction="row" align="center" mb={50}>
-            {isProfilePage ? <HeaderPost isPostPage isProfilePage /> : <RecentPost isTopicPage>{ukr}</RecentPost>}
+            {isProfilePage ? (
+              <HeaderPost user={postCreator} isPostPage isProfilePage />
+            ) : (
+              <RecentPost isTopicPage>{ukr}</RecentPost>
+            )}
             {!isProfilePage && <FollowButton onClick={onOpen} />}
           </Stack>
-          {topicPostsList.length === 0 ? (
+          {postsList.length === 0 ? (
             <SearchEmptyList needBlackFontColor>{messages.emptySearchList}</SearchEmptyList>
           ) : (
-            <Stack align="center">{topicPostsList}</Stack>
+            <Stack align="center">{postsList}</Stack>
           )}
           <GetMore />
         </Stack>

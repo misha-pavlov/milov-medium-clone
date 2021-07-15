@@ -5,7 +5,7 @@ export const constants = {
     post: '/post/:namePost/:id',
     topic: '/topic',
     topics: '/topics',
-    profile: '/profile/:id',
+    profile: '/profile',
     redirect: '/',
     error: '*',
   },

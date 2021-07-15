@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
 
 import TopicPage from './TopicPage';
-import { topicPostsList, TPosts } from '../../redux/reducers/PostsReducer';
+import { postCreatorPostsList, topicPostsList, TPosts } from '../../redux/reducers/PostsReducer';
 import { AppStateType } from '../../redux/redux';
 import { getSearchPosts } from '../../redux/selectors/UsersSelector';
 
@@ -14,6 +14,7 @@ type statePropsType = {
 
 type dispatchPropsType = {
   topicPostsList: (topic: string) => void;
+  postCreatorPostsList: (postCreator: string) => void;
 };
 
 type ownPropsType = {
@@ -30,20 +31,32 @@ const TopicPageContainer: React.FC<TSearchPostsContainer> = ({
   isAuth,
   removeLocalStorageItem,
   addLocalStorageItem,
+  postCreatorPostsList,
 }) => {
   const location = useLocation();
-  const params = useParams<{ name: string; ukr: string }>();
+  const params = useParams<{ name?: string; ukr?: string; postCreator?: string }>();
   const profile = 'profile';
 
   useEffect(() => {
-    (async function getTopicListFunction() {
-      await topicPostsList(params.name);
+    (async function getPostsListFunction() {
+      if (params.name != null) {
+        await topicPostsList(params.name);
+      }
     })();
   }, [topicPostsList, params.name]);
+
+  useEffect(() => {
+    (async function getPostsListFunction() {
+      if (params.postCreator != null) {
+        await postCreatorPostsList(params.postCreator);
+      }
+    })();
+  }, [postCreatorPostsList, params.postCreator]);
 
   return (
     <TopicPage
       ukr={params.ukr}
+      postCreator={params.postCreator}
       searchPosts={searchPosts}
       addLocalStorageItem={addLocalStorageItem}
       removeLocalStorageItem={removeLocalStorageItem}
@@ -58,5 +71,8 @@ const mapStateToProps = (state: AppStateType) => ({
 });
 
 export default compose(
-  connect<statePropsType, dispatchPropsType, ownPropsType, AppStateType>(mapStateToProps, { topicPostsList }),
+  connect<statePropsType, dispatchPropsType, ownPropsType, AppStateType>(mapStateToProps, {
+    topicPostsList,
+    postCreatorPostsList,
+  }),
 )(TopicPageContainer);

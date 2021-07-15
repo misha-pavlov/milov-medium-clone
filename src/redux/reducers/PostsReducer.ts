@@ -199,6 +199,27 @@ export const topicPostsList = (topic: string): ThunkPostType => {
   };
 };
 
+export const postCreatorPostsList = (postCreator: string): ThunkPostType => {
+  return async dispatch => {
+    const response = await postAPI.getPostsByPostCreator(postCreator);
+    dispatch(actionsPosts.clearSearchPosts());
+    for (const entry of response) {
+      dispatch(
+        actionsPosts.searchPosts(
+          entry._id,
+          entry.name,
+          entry.image,
+          entry.topic,
+          entry.postCreator,
+          entry.date,
+          entry.timeToRead,
+          entry.post,
+        ),
+      );
+    }
+  };
+};
+
 export default PostsReducer;
 
 export type initialStateType = {

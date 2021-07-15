@@ -20,14 +20,15 @@ import { constants } from '../../config/constants';
 type THeaderPost = {
   isPostPage?: boolean;
   isProfilePage?: boolean;
+  user?: string;
 };
 
-const HeaderPost: React.FC<THeaderPost> = ({ isPostPage, isProfilePage }) => {
+const HeaderPost: React.FC<THeaderPost> = ({ isPostPage, isProfilePage, user }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const history = useHistory();
 
   const goToProfile = () => {
-    history.push(constants.urls.profile);
+    history.push(`${constants.urls.profile}/${user}`);
   };
 
   return (
@@ -39,7 +40,7 @@ const HeaderPost: React.FC<THeaderPost> = ({ isPostPage, isProfilePage }) => {
         <Stack direction="row" align="center" justify="space-between" width={isProfilePage ? 1150 : 900}>
           <Stack direction="row" align="center">
             <PostCreator isPostPage={isPostPage} onClick={goToProfile}>
-              Name user
+              {user ? user : 'Name user'}
             </PostCreator>
             <FollowButton onClick={onOpen} />
           </Stack>
@@ -56,7 +57,7 @@ const HeaderPost: React.FC<THeaderPost> = ({ isPostPage, isProfilePage }) => {
       ) : (
         <Stack direction="row" align="center">
           <PostCreator isPostPage={isPostPage} onClick={goToProfile}>
-            Name user
+            {user ? user : 'Name user'}
           </PostCreator>
         </Stack>
       )}

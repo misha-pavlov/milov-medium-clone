@@ -31,7 +31,15 @@ export type TSearchPosts = {
 
 const SearchPosts: React.FC<TSearchPosts> = ({ isOpen, onClose, searchPosts, searchPostsList }) => {
   const searchRecentPostsList = searchPosts.map(s => (
-    <RecentPostsItem key={s._id} name={s.name} date={s.date} timeToRead={s.timeToRead} image={s.image} isSearchPosts />
+    <RecentPostsItem
+      key={s._id}
+      user={s.postCreator}
+      name={s.name}
+      date={s.date}
+      timeToRead={s.timeToRead}
+      image={s.image}
+      isSearchPosts
+    />
   ));
 
   const formik = useFormik({

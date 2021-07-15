@@ -49,7 +49,7 @@ const App = () => {
                 addLocalStorageItem={addLocalStorageItem}
               />
             </Route>
-            <Route exact path={constants.urls.profile}>
+            <Route exact path={`${constants.urls.profile}/:postCreator`}>
               <TopicPageContainer
                 isAuth={isAuth}
                 removeLocalStorageItem={removeLocalStorageItem}

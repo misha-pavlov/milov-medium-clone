@@ -13,7 +13,14 @@ type TRecentPosts = {
 
 const RecentPosts: React.FC<TRecentPosts> = ({ posts }) => {
   const postsList = posts.map(p => (
-    <RecentPostsItem key={p._id} name={p.name} date={p.date} timeToRead={p.timeToRead} image={p.image} />
+    <RecentPostsItem
+      key={p._id}
+      user={p.postCreator}
+      name={p.name}
+      date={p.date}
+      timeToRead={p.timeToRead}
+      image={p.image}
+    />
   ));
 
   return (
