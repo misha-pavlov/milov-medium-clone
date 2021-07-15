@@ -3,7 +3,7 @@ export const constants = {
     medium: '/medium',
     ourStory: '/ourStory',
     post: '/post/:namePost/:id',
-    topic: '/topic/:nameTopic',
+    topic: '/topic',
     topics: '/topics',
     profile: '/profile/:id',
     redirect: '/',

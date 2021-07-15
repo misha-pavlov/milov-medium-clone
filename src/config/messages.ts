@@ -30,6 +30,16 @@ export const messages = {
   },
   topic: 'Теми',
   allTopics: 'Усі теми',
+  topicLists: {
+    artAndEntertainment: 'Мистецтво та розваги',
+    culture: 'Культура',
+    health: 'Здоров`я',
+    industry: 'Промисловість',
+    personalDevelopment: 'Особистий розвиток',
+    programming: 'Програмування',
+    science: 'Наука',
+    technology: 'Технології',
+  },
   ourStoryText1:
     'Найкращі ідеї можуть змінити нас. Середній - це місце, де ' +
     'ці ідеї формуються, злітають і викликають потужні розмови. Ми - відкрита ' +
