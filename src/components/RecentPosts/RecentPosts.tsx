@@ -7,7 +7,7 @@ import { messages } from '../../config/messages';
 import GetMore from '../GetMore/GetMore';
 import { TPosts } from '../../redux/reducers/PostsReducer';
 
-type TRecentPosts = {
+export type TRecentPosts = {
   posts: Array<TPosts>;
 };
 

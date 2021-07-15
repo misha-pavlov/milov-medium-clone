@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { colors } from './colors';
 
-export const DefaultText = styled.p<{ isBold?: boolean; isPost?: boolean }>`
+export const DefaultText = styled.p<{ isBold?: boolean; isPost?: boolean; pointer?: boolean }>`
   font-family: ${({ isBold }) => (isBold ? 'Nunito-SemiBold' : 'Nunito-Regular')};
   font-size: ${({ isPost }) => (isPost ? '22' : '16')}px;
   line-height: ${({ isPost }) => (isPost ? '22' : '16')}px;
+  ${({ pointer }) => pointer && 'cursor: pointer'}
 `;
 
 export const PostCreator = styled.p<{ isPostPage?: boolean }>`

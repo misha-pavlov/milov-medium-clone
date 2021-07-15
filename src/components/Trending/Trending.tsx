@@ -5,8 +5,9 @@ import { FundOutlined } from '@ant-design/icons';
 import { DefaultText } from '../../config/fonts';
 import { messages } from '../../config/messages';
 import TrendItem from './TrendItem';
+import { TRecentPosts } from '../RecentPosts/RecentPosts';
 
-const Trending = () => {
+const Trending: React.FC<TRecentPosts> = ({ posts }) => {
   return (
     <Stack width={1200}>
       <Stack direction="row" align="center" mt={70} mb={5}>
@@ -15,15 +16,58 @@ const Trending = () => {
       </Stack>
 
       <Stack direction="row" align="center" justify="space-between">
-        <TrendItem />
-        <TrendItem trendNumber="02" />
-        <TrendItem trendNumber="03" />
+        {posts.length > 3 && (
+          <>
+            <TrendItem
+              user={posts[0].postCreator}
+              name={posts[0].name}
+              date={posts[0].date}
+              timeToRead={posts[0].timeToRead}
+            />
+            <TrendItem
+              user={posts[1].postCreator}
+              name={posts[1].name}
+              date={posts[1].date}
+              timeToRead={posts[1].timeToRead}
+              trendNumber="02"
+            />
+            <TrendItem
+              user={posts[2].postCreator}
+              name={posts[2].name}
+              date={posts[2].date}
+              timeToRead={posts[2].timeToRead}
+              trendNumber="03"
+            />
+          </>
+        )}
       </Stack>
 
       <Stack direction="row" align="center" justify="space-between">
-        <TrendItem trendNumber="04" />
-        <TrendItem trendNumber="05" />
-        <TrendItem trendNumber="06" />
+        {posts.length > 6 && (
+          <>
+            <TrendItem
+              user={posts[3].postCreator}
+              name={posts[3].name}
+              date={posts[3].date}
+              timeToRead={posts[3].timeToRead}
+              trendNumber="04"
+            />
+            <TrendItem
+              user={posts[4].postCreator}
+              name={posts[4].name}
+              date={posts[4].date}
+              timeToRead={posts[4].timeToRead}
+              trendNumber="05"
+            />
+            <TrendItem
+              user={posts[5].postCreator}
+              name={posts[5].name}
+              date={posts[5].date}
+              timeToRead={posts[5].timeToRead}
+              trendNumber="06"
+            />
+          </>
+        )}
       </Stack>
     </Stack>
   );

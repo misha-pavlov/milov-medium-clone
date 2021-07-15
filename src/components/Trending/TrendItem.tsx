@@ -8,9 +8,13 @@ import { constants } from '../../config/constants';
 
 type TTrendItem = {
   trendNumber?: string;
+  name: string;
+  date: string;
+  timeToRead: string;
+  user: string;
 };
 
-const TrendItem: React.FC<TTrendItem> = ({ trendNumber }) => {
+const TrendItem: React.FC<TTrendItem> = ({ trendNumber, user, name, timeToRead, date }) => {
   const history = useHistory();
 
   const goToPost = () => {
@@ -24,12 +28,16 @@ const TrendItem: React.FC<TTrendItem> = ({ trendNumber }) => {
       </Stack>
 
       <Stack>
-        <HeaderPost />
+        <HeaderPost user={user} />
         <Stack onClick={goToPost}>
-          <DefaultText isBold>Post Name</DefaultText>
+          <DefaultText pointer isBold>
+            {name}
+          </DefaultText>
         </Stack>
         <Stack>
-          <PostDateTime>Date • Time</PostDateTime>
+          <PostDateTime>
+            {date} • {timeToRead}
+          </PostDateTime>
         </Stack>
       </Stack>
     </Stack>
