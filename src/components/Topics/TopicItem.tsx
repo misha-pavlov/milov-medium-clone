@@ -5,16 +5,21 @@ import { useHistory } from 'react-router-dom';
 import { topicsStyle } from './Topics.style';
 import { constants } from '../../config/constants';
 
-const TopicItem = () => {
+type TTopicItem = {
+  name: string;
+  ukr: string;
+};
+
+const TopicItem: React.FC<TTopicItem> = ({ name, ukr }) => {
   const history = useHistory();
 
   const goToTopic = () => {
-    history.push(constants.urls.topic);
+    history.push(`${constants.urls.topic}/${name}`);
   };
 
   return (
     <Button variant="outline" colorScheme="green" width={125} style={topicsStyle.button} onClick={goToTopic}>
-      Topic
+      {ukr}
     </Button>
   );
 };

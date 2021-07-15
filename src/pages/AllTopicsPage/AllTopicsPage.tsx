@@ -31,6 +31,19 @@ const AllTopicsPage: React.FC<TMediumMain> = ({ isAuth, removeLocalStorageItem, 
   const science = Science.map(a => <CardTopic key={a.id} image={a.image} name={a.name} ukr={a.ukr} />);
   const technology = Technology.map(a => <CardTopic key={a.id} image={a.image} name={a.name} ukr={a.ukr} />);
 
+  const allTopicItem = (name: string, components: any) => {
+    return (
+      <Stack width={1200} pb={55}>
+        <RecentPost>{name}</RecentPost>
+        <Divider orientation="horizontal" colorScheme="green" />
+
+        <Stack direction="row" wrap="wrap" justify="space-between">
+          {components}
+        </Stack>
+      </Stack>
+    );
+  };
+
   return (
     <Stack>
       <Header
@@ -39,77 +52,14 @@ const AllTopicsPage: React.FC<TMediumMain> = ({ isAuth, removeLocalStorageItem, 
         removeLocalStorageItem={removeLocalStorageItem}
       />
       <Stack align="center">
-        <Stack width={1200} pb={55}>
-          <RecentPost>{messages.topicLists.artAndEntertainment}</RecentPost>
-          <Divider orientation="horizontal" colorScheme="green" />
-
-          <Stack direction="row" wrap="wrap" justify="space-between">
-            {artAndEntertainment}
-          </Stack>
-        </Stack>
-
-        <Stack width={1200} pb={55}>
-          <RecentPost>{messages.topicLists.culture}</RecentPost>
-          <Divider orientation="horizontal" colorScheme="green" />
-
-          <Stack direction="row" wrap="wrap" justify="space-between">
-            {culture}
-          </Stack>
-        </Stack>
-
-        <Stack width={1200} pb={55}>
-          <RecentPost>{messages.topicLists.health}</RecentPost>
-          <Divider orientation="horizontal" colorScheme="green" />
-
-          <Stack direction="row" wrap="wrap" justify="space-between">
-            {health}
-          </Stack>
-        </Stack>
-
-        <Stack width={1200} pb={55}>
-          <RecentPost>{messages.topicLists.industry}</RecentPost>
-          <Divider orientation="horizontal" colorScheme="green" />
-
-          <Stack direction="row" wrap="wrap" justify="space-between">
-            {industry}
-          </Stack>
-        </Stack>
-
-        <Stack width={1200} pb={55}>
-          <RecentPost>{messages.topicLists.personalDevelopment}</RecentPost>
-          <Divider orientation="horizontal" colorScheme="green" />
-
-          <Stack direction="row" wrap="wrap" justify="space-between">
-            {personalDevelopment}
-          </Stack>
-        </Stack>
-
-        <Stack width={1200} pb={55}>
-          <RecentPost>{messages.topicLists.programming}</RecentPost>
-          <Divider orientation="horizontal" colorScheme="green" />
-
-          <Stack direction="row" wrap="wrap" justify="space-between">
-            {programming}
-          </Stack>
-        </Stack>
-
-        <Stack width={1200} pb={55}>
-          <RecentPost>{messages.topicLists.science}</RecentPost>
-          <Divider orientation="horizontal" colorScheme="green" />
-
-          <Stack direction="row" wrap="wrap" justify="space-between">
-            {science}
-          </Stack>
-        </Stack>
-
-        <Stack width={1200} pb={55}>
-          <RecentPost>{messages.topicLists.technology}</RecentPost>
-          <Divider orientation="horizontal" colorScheme="green" />
-
-          <Stack direction="row" wrap="wrap" justify="space-between">
-            {technology}
-          </Stack>
-        </Stack>
+        {allTopicItem(messages.topicLists.artAndEntertainment, artAndEntertainment)}
+        {allTopicItem(messages.topicLists.culture, culture)}
+        {allTopicItem(messages.topicLists.health, health)}
+        {allTopicItem(messages.topicLists.industry, industry)}
+        {allTopicItem(messages.topicLists.personalDevelopment, personalDevelopment)}
+        {allTopicItem(messages.topicLists.programming, programming)}
+        {allTopicItem(messages.topicLists.science, science)}
+        {allTopicItem(messages.topicLists.technology, technology)}
       </Stack>
     </Stack>
   );
