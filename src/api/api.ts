@@ -34,4 +34,9 @@ export const postAPI = {
     const posts = `http://localhost:3000/posts/post-by-name/${postName}`;
     return axios.get<Array<TPosts>>(posts).then(response => response.data);
   },
+
+  getPostsByTopic(topic: string) {
+    const posts = `http://localhost:3000/posts/post-by-topic/${topic}`;
+    return axios.get<Array<TPosts>>(posts).then(response => response.data);
+  },
 };

@@ -63,7 +63,7 @@ const App = () => {
                 addLocalStorageItem={addLocalStorageItem}
               />
             </Route>
-            <Route exact path={`${constants.urls.topic}/:name`}>
+            <Route exact path={`${constants.urls.topic}/:name/:ukr`}>
               <TopicPageContainer
                 isAuth={isAuth}
                 removeLocalStorageItem={removeLocalStorageItem}

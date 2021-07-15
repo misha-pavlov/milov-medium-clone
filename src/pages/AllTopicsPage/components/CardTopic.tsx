@@ -15,7 +15,7 @@ const CardTopic: React.FC<TCardTopic> = ({ name, image, ukr }) => {
   const history = useHistory();
 
   const goToTopic = () => {
-    history.push(`${constants.urls.topic}/${name}`);
+    history.push(`${constants.urls.topic}/${name}/${ukr}`);
   };
 
   return (

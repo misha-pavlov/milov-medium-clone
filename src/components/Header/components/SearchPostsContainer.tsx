@@ -1,10 +1,10 @@
 import React from 'react';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
 import SearchPosts from './SearchPosts';
 import { searchPostsList, TPosts } from '../../../redux/reducers/PostsReducer';
 import { AppStateType } from '../../../redux/redux';
 import { getSearchPosts } from '../../../redux/selectors/UsersSelector';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
 
 type statePropsType = {
   searchPosts: Array<TPosts>;

@@ -14,7 +14,7 @@ const TopicItem: React.FC<TTopicItem> = ({ name, ukr }) => {
   const history = useHistory();
 
   const goToTopic = () => {
-    history.push(`${constants.urls.topic}/${name}`);
+    history.push(`${constants.urls.topic}/${name}/${ukr}`);
   };
 
   return (

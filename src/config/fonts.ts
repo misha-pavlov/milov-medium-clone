@@ -36,3 +36,12 @@ export const RecentPost = styled.p<{ isTopicPage?: boolean }>`
   line-height: 20px;
   margin-bottom: ${({ isTopicPage }) => (isTopicPage ? 0 : 10)}px;
 `;
+
+export const SearchEmptyList = styled.p<{ needBlackFontColor?: boolean }>`
+  font-family: Nunito-Bold;
+  font-size: 18px;
+  line-height: 18px;
+  text-align: center;
+  margin-top: 15px;
+  color: ${({ needBlackFontColor }) => (needBlackFontColor ? colors.black1 : colors.white1)};
+`;

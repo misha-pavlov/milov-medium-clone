@@ -16,9 +16,10 @@ import { useFormik } from 'formik';
 
 import { colors } from '../../../config/colors';
 import RecentPostsItem from '../../RecentPosts/RecentPostsItem';
-import { SearchEmptyList, searchPostsStyles } from './SearchPosts.styles';
+import { searchPostsStyles } from './SearchPosts.styles';
 import { TPosts } from '../../../redux/reducers/PostsReducer';
 import { messages } from '../../../config/messages';
+import { SearchEmptyList } from '../../../config/fonts';
 
 export type TSearchPosts = {
   isOpen: boolean;
@@ -41,7 +42,7 @@ const SearchPosts: React.FC<TSearchPosts> = ({ isOpen, onClose, searchPosts, sea
       searchPostsList(values.searchInput);
     },
   });
-  console.log(searchRecentPostsList.length);
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} size={'full'}>
       <ModalOverlay />
