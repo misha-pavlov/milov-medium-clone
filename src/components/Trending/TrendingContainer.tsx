@@ -20,7 +20,6 @@ type ownPropsType = {};
 type TTrendingContainer = statePropsType & dispatchPropsType & ownPropsType;
 
 const TrendingContainer: React.FC<TTrendingContainer> = ({ posts, getRecentPostsList }) => {
-  console.log(posts);
   useEffect(() => {
     (async function getRecentPostsListFunction() {
       await getRecentPostsList();

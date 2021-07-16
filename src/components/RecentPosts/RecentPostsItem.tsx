@@ -21,9 +21,9 @@ type TRecentPostsItem = {
 const RecentPostsItem: React.FC<TRecentPostsItem> = ({ isSearchPosts, user, name, date, timeToRead, image }) => {
   const { isOpen, onClose } = useDisclosure();
   const history = useHistory();
-  const [photo, setPhoto] = useState<any>(undefined);
+  const [userData, setUserData] = useState<any>(undefined);
   useUsersData(user)
-    .then(success => setPhoto(success))
+    .then(success => setUserData(success))
     .catch(err => err);
 
   const goToPost = () => {
@@ -38,7 +38,7 @@ const RecentPostsItem: React.FC<TRecentPostsItem> = ({ isSearchPosts, user, name
       align="center"
       style={isSearchPosts ? stylesRecentPosts.body : {}}>
       <Stack width={450}>
-        <HeaderPost user={user} photo={photo} />
+        <HeaderPost user={user} photo={userData?.photo} />
         <Stack onClick={goToPost} cursor="pointer">
           <DefaultText isBold>{name}</DefaultText>
         </Stack>

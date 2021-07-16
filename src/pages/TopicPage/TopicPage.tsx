@@ -32,10 +32,10 @@ const TopicPage: React.FC<TTopicPage & TMediumMain> = ({
   postCreator,
 }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [photo, setPhoto] = useState<any>(undefined);
+  const [user, setUser] = useState<any>(undefined);
   postCreator &&
     useUsersData(postCreator)
-      .then(success => setPhoto(success))
+      .then(success => setUser(success))
       .catch(err => err);
 
   const postsList = searchPosts.map(t => (
@@ -60,7 +60,17 @@ const TopicPage: React.FC<TTopicPage & TMediumMain> = ({
         <Stack width={800} mb={50}>
           <Stack direction="row" align="center" mb={50}>
             {isProfilePage ? (
-              <HeaderPost user={postCreator} isPostPage isProfilePage photo={photo} />
+              <HeaderPost
+                user={postCreator}
+                isPostPage
+                isProfilePage
+                photo={user?.photo}
+                gitHub={user?.gitHub}
+                twitter={user?.twitter}
+                facebook={user?.facebook}
+                instagram={user?.instagram}
+                linkedin={user?.linkedin}
+              />
             ) : (
               <RecentPost isTopicPage>{ukr}</RecentPost>
             )}

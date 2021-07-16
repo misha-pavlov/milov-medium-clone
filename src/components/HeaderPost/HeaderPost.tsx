@@ -1,8 +1,7 @@
 import React from 'react';
-import { Image, Stack, useDisclosure } from '@chakra-ui/react';
+import { Image, Link, Stack, useDisclosure } from '@chakra-ui/react';
 import { QuestionIcon } from '@chakra-ui/icons';
 import {
-  BookOutlined,
   GithubOutlined,
   InstagramOutlined,
   LinkedinOutlined,
@@ -22,9 +21,24 @@ type THeaderPost = {
   isProfilePage?: boolean;
   user?: string;
   photo?: string;
+  twitter?: string;
+  gitHub?: string;
+  facebook?: string;
+  linkedin?: string;
+  instagram?: string;
 };
 
-const HeaderPost: React.FC<THeaderPost> = ({ isPostPage, isProfilePage, user, photo }) => {
+const HeaderPost: React.FC<THeaderPost> = ({
+  isPostPage,
+  isProfilePage,
+  user,
+  photo,
+  gitHub,
+  facebook,
+  instagram,
+  linkedin,
+  twitter,
+}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const history = useHistory();
 
@@ -51,12 +65,31 @@ const HeaderPost: React.FC<THeaderPost> = ({ isPostPage, isProfilePage, user, ph
           </Stack>
 
           <Stack direction="row" align="center" spacing={5}>
-            <TwitterOutlined style={stylesPostPage.icons} />
-            <GithubOutlined style={stylesPostPage.icons} />
-            <LinkedinOutlined style={stylesPostPage.icons} />
-            <FacebookOutlined style={stylesPostPage.icons} />
-            <InstagramOutlined style={stylesPostPage.icons} />
-            <BookOutlined style={stylesPostPage.icons} onClick={onOpen} />
+            {twitter?.includes('twitter.com') && (
+              <Link href={twitter} isExternal style={stylesPostPage.iconsZIndex}>
+                <TwitterOutlined style={stylesPostPage.icons} />
+              </Link>
+            )}
+            {gitHub?.includes('gitHub.com') && (
+              <Link href={gitHub} isExternal style={stylesPostPage.iconsZIndex}>
+                <GithubOutlined style={stylesPostPage.icons} />
+              </Link>
+            )}
+            {linkedin?.includes('linkedin.com') && (
+              <Link href={linkedin} isExternal style={stylesPostPage.iconsZIndex}>
+                <LinkedinOutlined style={stylesPostPage.icons} />
+              </Link>
+            )}
+            {facebook?.includes('facebook.com') && (
+              <Link href={facebook} isExternal style={stylesPostPage.iconsZIndex}>
+                <FacebookOutlined style={stylesPostPage.icons} />
+              </Link>
+            )}
+            {instagram?.includes('instagram.com') && (
+              <Link href={instagram} isExternal style={stylesPostPage.iconsZIndex}>
+                <InstagramOutlined style={stylesPostPage.icons} />
+              </Link>
+            )}
           </Stack>
         </Stack>
       ) : (

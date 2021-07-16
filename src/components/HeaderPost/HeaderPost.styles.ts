@@ -5,4 +5,8 @@ export const stylesPostPage = {
     fontSize: 20,
     color: colors.gray2,
   },
+
+  iconsZIndex: {
+    zIndex: 9999,
+  },
 };

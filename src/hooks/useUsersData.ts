@@ -13,7 +13,7 @@ const useUsersData = async (userName: string) => {
   }, []);
 
   const result = await usersList.filter(u => u.userName === userName);
-  return result === [] ? [] : result[0]?.photo;
+  return result === [] ? [] : result[0];
 };
 
 export default useUsersData;
