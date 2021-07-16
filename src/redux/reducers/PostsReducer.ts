@@ -220,6 +220,20 @@ export const postCreatorPostsList = (postCreator: string): ThunkPostType => {
   };
 };
 
+export const createPost = (
+  name: string,
+  image: string,
+  topic: string,
+  postCreator: string,
+  date: string,
+  timeToRead: string,
+  post: string,
+): ThunkPostType => {
+  return async dispatch => {
+    await postAPI.createPost(name, image, topic, postCreator, date, timeToRead, post);
+  };
+};
+
 export default PostsReducer;
 
 export type initialStateType = {

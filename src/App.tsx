@@ -12,6 +12,7 @@ import TopicPageContainer from './pages/TopicPage/TopicPageContainer';
 import AllTopicsPageContainer from './pages/AllTopicsPage/AllTopicsPageContainer';
 import OurStoryPageContainer from './pages/OurStoryPage/OurStoryPageContainer';
 import Store from './redux/redux';
+import CreatePostContainer from './pages/CreatePost/CreatePostContainer';
 
 const App = () => {
   const [isAuth, setIsAuth] = useState(localStorage.getItem(constants.localStorage.user) !== null);
@@ -72,6 +73,13 @@ const App = () => {
             </Route>
             <Route exact path={constants.urls.topics}>
               <AllTopicsPageContainer
+                isAuth={isAuth}
+                removeLocalStorageItem={removeLocalStorageItem}
+                addLocalStorageItem={addLocalStorageItem}
+              />
+            </Route>
+            <Route exact path={constants.urls.createPost}>
+              <CreatePostContainer
                 isAuth={isAuth}
                 removeLocalStorageItem={removeLocalStorageItem}
                 addLocalStorageItem={addLocalStorageItem}

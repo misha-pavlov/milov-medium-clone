@@ -7,6 +7,7 @@ export const messages = {
     follow: 'Підписатись',
     unfollow: 'Відписатись',
     next: 'Дальше',
+    create: 'Створити',
   },
   nav: {
     ourStory: 'Наша історія',
@@ -70,4 +71,11 @@ export const messages = {
     socialNetworks: `Соціальні мережі (не обов'язково)`,
   },
   emptySearchList: 'Пошук пустий',
+  createPost: {
+    amazingStory: 'Напишіть свою дивовижну історію...',
+    title: 'Заголовок посту',
+    image: 'Зображення',
+    topic: 'Тема',
+    timeToRead: 'Час на прочитання',
+  },
 };

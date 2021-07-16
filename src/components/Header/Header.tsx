@@ -27,7 +27,9 @@ const Header: React.FC<TMediumMain> = ({ isAuth, removeLocalStorageItem, addLoca
 
         <Stack direction="row" justify="space-between" align="center" spacing={5}>
           <Li>
-            <NavLink to={constants.urls.ourStory}>{isAuth ? messages.login.write : messages.nav.ourStory}</NavLink>
+            <NavLink to={isAuth ? constants.urls.createPost : constants.urls.ourStory}>
+              {isAuth ? messages.login.write : messages.nav.ourStory}
+            </NavLink>
           </Li>
           <Button
             colorScheme="teal"

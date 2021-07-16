@@ -45,4 +45,19 @@ export const postAPI = {
     const posts = `http://localhost:3000/posts/post-by-postCreator/${postCreator}`;
     return axios.get<Array<TPosts>>(posts).then(response => response.data);
   },
+
+  createPost(
+    name: string,
+    image: string,
+    topic: string,
+    postCreator: string,
+    date: string,
+    timeToRead: string,
+    post: string,
+  ) {
+    const postCreate = `http://localhost:3000/posts`;
+    return axios
+      .post(postCreate, { name, image, topic, postCreator, date, timeToRead, post })
+      .then(response => response.data);
+  },
 };
