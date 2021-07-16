@@ -7,6 +7,7 @@ export const userAPI = {
     const users = `http://localhost:3000/users`;
     return axios.get<Array<TUsers>>(users).then(response => response.data);
   },
+
   signUpUser(
     userName: string,
     password: string,

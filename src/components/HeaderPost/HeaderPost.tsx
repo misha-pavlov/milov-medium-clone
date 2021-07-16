@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack, useDisclosure } from '@chakra-ui/react';
+import { Image, Stack, useDisclosure } from '@chakra-ui/react';
 import { QuestionIcon } from '@chakra-ui/icons';
 import {
   BookOutlined,
@@ -21,9 +21,10 @@ type THeaderPost = {
   isPostPage?: boolean;
   isProfilePage?: boolean;
   user?: string;
+  photo?: string;
 };
 
-const HeaderPost: React.FC<THeaderPost> = ({ isPostPage, isProfilePage, user }) => {
+const HeaderPost: React.FC<THeaderPost> = ({ isPostPage, isProfilePage, user, photo }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const history = useHistory();
 
@@ -34,7 +35,11 @@ const HeaderPost: React.FC<THeaderPost> = ({ isPostPage, isProfilePage, user }) 
   return (
     <Stack direction="row" align="center" mb={2}>
       <Stack>
-        <QuestionIcon boxSize={isPostPage ? 35 : 5} />
+        {photo ? (
+          <Image borderRadius="full" boxSize={isPostPage ? 35 : 5} src={photo} alt="user" />
+        ) : (
+          <QuestionIcon boxSize={isPostPage ? 35 : 5} />
+        )}
       </Stack>
       {isPostPage ? (
         <Stack direction="row" align="center" justify="space-between" width={isProfilePage ? 1150 : 900}>

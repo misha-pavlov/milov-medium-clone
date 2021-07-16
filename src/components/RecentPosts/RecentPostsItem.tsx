@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Stack, Image, useDisclosure } from '@chakra-ui/react';
 import { useHistory } from 'react-router-dom';
 
@@ -7,6 +7,7 @@ import HeaderPost from '../HeaderPost/HeaderPost';
 import ModalLogin from '../ModalLogin/ModalLogin';
 import { constants } from '../../config/constants';
 import { stylesRecentPosts } from './RecentPosts.styles';
+import useUsersData from '../../hooks/useUsersData';
 
 type TRecentPostsItem = {
   isSearchPosts?: boolean;
@@ -20,6 +21,10 @@ type TRecentPostsItem = {
 const RecentPostsItem: React.FC<TRecentPostsItem> = ({ isSearchPosts, user, name, date, timeToRead, image }) => {
   const { isOpen, onClose } = useDisclosure();
   const history = useHistory();
+  const [photo, setPhoto] = useState<any>(undefined);
+  useUsersData(user)
+    .then(success => setPhoto(success))
+    .catch(err => err);
 
   const goToPost = () => {
     history.push(constants.urls.post);
@@ -33,7 +38,7 @@ const RecentPostsItem: React.FC<TRecentPostsItem> = ({ isSearchPosts, user, name
       align="center"
       style={isSearchPosts ? stylesRecentPosts.body : {}}>
       <Stack width={450}>
-        <HeaderPost user={user} />
+        <HeaderPost user={user} photo={photo} />
         <Stack onClick={goToPost} cursor="pointer">
           <DefaultText isBold>{name}</DefaultText>
         </Stack>

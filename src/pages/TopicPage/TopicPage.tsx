@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Stack, useDisclosure } from '@chakra-ui/react';
 
 import Header from '../../components/Header/Header';
@@ -13,6 +13,7 @@ import GetMore from '../../components/GetMore/GetMore';
 import { TMediumMain } from '../MediumMain/MediumMain';
 import { TPosts } from '../../redux/reducers/PostsReducer';
 import { messages } from '../../config/messages';
+import useUsersData from '../../hooks/useUsersData';
 
 type TTopicPage = {
   isProfilePage?: boolean;
@@ -31,6 +32,12 @@ const TopicPage: React.FC<TTopicPage & TMediumMain> = ({
   postCreator,
 }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [photo, setPhoto] = useState<any>(undefined);
+  postCreator &&
+    useUsersData(postCreator)
+      .then(success => setPhoto(success))
+      .catch(err => err);
+
   const postsList = searchPosts.map(t => (
     <RecentPostsItem
       key={t._id}
@@ -53,7 +60,7 @@ const TopicPage: React.FC<TTopicPage & TMediumMain> = ({
         <Stack width={800} mb={50}>
           <Stack direction="row" align="center" mb={50}>
             {isProfilePage ? (
-              <HeaderPost user={postCreator} isPostPage isProfilePage />
+              <HeaderPost user={postCreator} isPostPage isProfilePage photo={photo} />
             ) : (
               <RecentPost isTopicPage>{ukr}</RecentPost>
             )}
