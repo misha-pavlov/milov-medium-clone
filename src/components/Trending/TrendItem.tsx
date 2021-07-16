@@ -13,9 +13,10 @@ type TTrendItem = {
   date: string;
   timeToRead: string;
   user: string;
+  _id: string;
 };
 
-const TrendItem: React.FC<TTrendItem> = ({ trendNumber, user, name, timeToRead, date }) => {
+const TrendItem: React.FC<TTrendItem> = ({ trendNumber, user, name, timeToRead, date, _id }) => {
   const history = useHistory();
   const [photo, setPhoto] = useState<any>(undefined);
   useUsersData(user)
@@ -23,7 +24,7 @@ const TrendItem: React.FC<TTrendItem> = ({ trendNumber, user, name, timeToRead, 
     .catch(err => err);
 
   const goToPost = () => {
-    history.push(constants.urls.post);
+    history.push(`${constants.urls.post}/${name}/${_id}`);
   };
 
   return (

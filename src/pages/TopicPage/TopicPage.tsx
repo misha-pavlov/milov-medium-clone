@@ -41,6 +41,7 @@ const TopicPage: React.FC<TTopicPage & TMediumMain> = ({
   const postsList = searchPosts.map(t => (
     <RecentPostsItem
       key={t._id}
+      _id={t._id}
       user={t.postCreator}
       name={t.name}
       date={t.date}

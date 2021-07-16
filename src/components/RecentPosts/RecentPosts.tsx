@@ -15,6 +15,7 @@ const RecentPosts: React.FC<TRecentPosts> = ({ posts }) => {
   const postsList = posts.map(p => (
     <RecentPostsItem
       key={p._id}
+      _id={p._id}
       user={p.postCreator}
       name={p.name}
       date={p.date}

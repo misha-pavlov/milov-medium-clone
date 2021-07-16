@@ -2,7 +2,7 @@ export const constants = {
   urls: {
     medium: '/medium',
     ourStory: '/ourStory',
-    post: '/post/:namePost/:id',
+    post: '/post',
     topic: '/topic',
     topics: '/topics',
     profile: '/profile',

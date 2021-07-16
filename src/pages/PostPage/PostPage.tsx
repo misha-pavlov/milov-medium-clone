@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Image, Stack } from '@chakra-ui/react';
 
 import Header from '../../components/Header/Header';
@@ -7,8 +7,20 @@ import TrendingContainer from '../../components/Trending/TrendingContainer';
 import Footer from '../../components/Footer/Footer';
 import { PostHeader } from './PostPage.styles';
 import { TMediumMain } from '../MediumMain/MediumMain';
+import { TPosts } from '../../redux/reducers/PostsReducer';
+import useUsersData from '../../hooks/useUsersData';
 
-const PostPage: React.FC<TMediumMain> = ({ isAuth, removeLocalStorageItem, addLocalStorageItem }) => {
+const PostPage: React.FC<TMediumMain & { searchPosts: Array<TPosts> }> = ({
+  isAuth,
+  removeLocalStorageItem,
+  addLocalStorageItem,
+  searchPosts,
+}) => {
+  const [user, setUser] = useState<any>(undefined);
+  useUsersData(searchPosts[0]?.postCreator)
+    .then(success => setUser(success))
+    .catch(err => err);
+
   return (
     <Stack>
       <Header
@@ -18,25 +30,17 @@ const PostPage: React.FC<TMediumMain> = ({ isAuth, removeLocalStorageItem, addLo
       />
       <Stack align="center">
         <Stack width={900}>
-          <PostHeader>How sex help you in life!</PostHeader>
+          <PostHeader>{searchPosts[0]?.name}</PostHeader>
 
           <Stack mb={50}>
-            <HeaderPost isPostPage />
+            <HeaderPost user={user?.userName} photo={user?.photo} isPostPage />
           </Stack>
 
           <Stack mb={50}>
-            <Image
-              objectFit="fill"
-              src={'https://www.w3bai.com/css/lights600x400.jpg'}
-              alt="postImage"
-              maxWidth={900}
-              maxHeight={1000}
-            />
+            <Image objectFit="fill" src={searchPosts[0]?.image} alt="postImage" maxWidth={900} maxHeight={1000} />
           </Stack>
 
-          <Stack mb={50}>
-            <p>Text in this section</p>
-          </Stack>
+          <Stack mb={50}>{searchPosts[0]?.post}</Stack>
         </Stack>
 
         <Stack>

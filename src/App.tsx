@@ -57,7 +57,7 @@ const App = () => {
                 addLocalStorageItem={addLocalStorageItem}
               />
             </Route>
-            <Route exact path={constants.urls.post}>
+            <Route exact path={`${constants.urls.post}/:namePost/:id`}>
               <PostPageContainer
                 isAuth={isAuth}
                 removeLocalStorageItem={removeLocalStorageItem}

@@ -19,12 +19,14 @@ const Trending: React.FC<TRecentPosts> = ({ posts }) => {
         {posts.length > 3 && (
           <>
             <TrendItem
+              _id={posts[0]._id}
               user={posts[0].postCreator}
               name={posts[0].name}
               date={posts[0].date}
               timeToRead={posts[0].timeToRead}
             />
             <TrendItem
+              _id={posts[1]._id}
               user={posts[1].postCreator}
               name={posts[1].name}
               date={posts[1].date}
@@ -32,6 +34,7 @@ const Trending: React.FC<TRecentPosts> = ({ posts }) => {
               trendNumber="02"
             />
             <TrendItem
+              _id={posts[2]._id}
               user={posts[2].postCreator}
               name={posts[2].name}
               date={posts[2].date}
@@ -46,6 +49,7 @@ const Trending: React.FC<TRecentPosts> = ({ posts }) => {
         {posts.length > 6 && (
           <>
             <TrendItem
+              _id={posts[3]._id}
               user={posts[3].postCreator}
               name={posts[3].name}
               date={posts[3].date}
@@ -53,6 +57,7 @@ const Trending: React.FC<TRecentPosts> = ({ posts }) => {
               trendNumber="04"
             />
             <TrendItem
+              _id={posts[4]._id}
               user={posts[4].postCreator}
               name={posts[4].name}
               date={posts[4].date}
@@ -60,6 +65,7 @@ const Trending: React.FC<TRecentPosts> = ({ posts }) => {
               trendNumber="05"
             />
             <TrendItem
+              _id={posts[5]._id}
               user={posts[5].postCreator}
               name={posts[5].name}
               date={posts[5].date}

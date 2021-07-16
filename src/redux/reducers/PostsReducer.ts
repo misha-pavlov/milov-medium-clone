@@ -220,6 +220,33 @@ export const postCreatorPostsList = (postCreator: string): ThunkPostType => {
   };
 };
 
+export const getPost = (_id: string): ThunkPostType => {
+  return async dispatch => {
+    const response = await postAPI.getPost(_id);
+    dispatch(actionsPosts.clearSearchPosts());
+    dispatch(
+      actionsPosts.searchPosts(
+        // @ts-ignore
+        response._id,
+        // @ts-ignore
+        response.name,
+        // @ts-ignore
+        response.image,
+        // @ts-ignore
+        response.topic,
+        // @ts-ignore
+        response.postCreator,
+        // @ts-ignore
+        response.date,
+        // @ts-ignore
+        response.timeToRead,
+        // @ts-ignore
+        response.post,
+      ),
+    );
+  };
+};
+
 export const createPost = (
   name: string,
   image: string,

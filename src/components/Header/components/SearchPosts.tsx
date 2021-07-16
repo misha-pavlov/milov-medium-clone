@@ -33,6 +33,7 @@ const SearchPosts: React.FC<TSearchPosts> = ({ isOpen, onClose, searchPosts, sea
   const searchRecentPostsList = searchPosts.map(s => (
     <RecentPostsItem
       key={s._id}
+      _id={s._id}
       user={s.postCreator}
       name={s.name}
       date={s.date}

@@ -16,9 +16,10 @@ type TRecentPostsItem = {
   timeToRead: string;
   image: string;
   user: string;
+  _id: string;
 };
 
-const RecentPostsItem: React.FC<TRecentPostsItem> = ({ isSearchPosts, user, name, date, timeToRead, image }) => {
+const RecentPostsItem: React.FC<TRecentPostsItem> = ({ isSearchPosts, user, name, date, timeToRead, image, _id }) => {
   const { isOpen, onClose } = useDisclosure();
   const history = useHistory();
   const [userData, setUserData] = useState<any>(undefined);
@@ -27,7 +28,7 @@ const RecentPostsItem: React.FC<TRecentPostsItem> = ({ isSearchPosts, user, name
     .catch(err => err);
 
   const goToPost = () => {
-    history.push(constants.urls.post);
+    history.push(`${constants.urls.post}/${name}/${_id}`);
   };
 
   return (
