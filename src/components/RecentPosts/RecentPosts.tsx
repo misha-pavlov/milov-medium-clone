@@ -26,7 +26,7 @@ const RecentPosts: React.FC<TRecentPosts> = ({ posts }) => {
   return (
     <Stack width={800}>
       <RecentPost>{messages.recentPost}</RecentPost>
-      {postsList}
+      {postsList.reverse()}
       <GetMore />
     </Stack>
   );
