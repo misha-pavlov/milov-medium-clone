@@ -160,7 +160,8 @@ const CreatePost: React.FC<TMediumMain & TCreatePost> = ({
                 formik.values.image === '' ||
                 formik.values.topic === '' ||
                 formik.values.timeToRead === '' ||
-                text === ''
+                text === '' ||
+                !formik.values.image.includes('http' || 'https')
               }
               bg={colors.specialGreen}
               type="submit">
