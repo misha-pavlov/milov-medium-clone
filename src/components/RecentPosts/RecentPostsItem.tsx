@@ -8,6 +8,7 @@ import ModalLogin from '../ModalLogin/ModalLogin';
 import { constants } from '../../config/constants';
 import { stylesRecentPosts } from './RecentPosts.styles';
 import useUsersData from '../../hooks/useUsersData';
+import EmptyImage from '../../assets/img/EmptyImage.png';
 
 type TRecentPostsItem = {
   isSearchPosts?: boolean;
@@ -45,13 +46,19 @@ const RecentPostsItem: React.FC<TRecentPostsItem> = ({ isSearchPosts, user, name
         </Stack>
         <Stack direction="row" justify="space-between">
           <PostDateTime>
-            {date} • {timeToRead}
+            {date} • {timeToRead} хвилин
           </PostDateTime>
         </Stack>
       </Stack>
 
       <Stack>
-        <Image objectFit="fill" src={image} alt="postImage" height={134} maxWidth={200} />
+        <Image
+          objectFit="fill"
+          src={image.includes('http' || 'https') ? image : EmptyImage}
+          alt="postImage"
+          height={134}
+          maxWidth={200}
+        />
       </Stack>
       <ModalLogin isOpen={isOpen} onClose={onClose} isSignUp />
     </Stack>

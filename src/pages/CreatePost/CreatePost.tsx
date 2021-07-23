@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Stack, Input, Button, Select } from '@chakra-ui/react';
-import SunEditor from 'suneditor-react';
+import SunEditor, { buttonList } from 'suneditor-react';
 // @ts-ignore
 import SunEditorCore from 'suneditor/src/lib/core';
 import 'suneditor/dist/css/suneditor.min.css';
@@ -102,6 +102,7 @@ const CreatePost: React.FC<TMediumMain & TCreatePost> = ({
       <Stack align="center">
         <Stack width={1200}>
           <SunEditor
+            setOptions={{ buttonList: buttonList.complex }}
             height="100vh"
             placeholder={messages.createPost.amazingStory}
             autoFocus

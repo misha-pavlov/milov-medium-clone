@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Image, Stack } from '@chakra-ui/react';
+import ReactHtmlParser from 'react-html-parser';
 
 import Header from '../../components/Header/Header';
 import HeaderPost from '../../components/HeaderPost/HeaderPost';
@@ -36,11 +37,12 @@ const PostPage: React.FC<TMediumMain & { searchPosts: Array<TPosts> }> = ({
             <HeaderPost user={user?.userName} photo={user?.photo} isPostPage />
           </Stack>
 
-          <Stack mb={50}>
+          <Stack pb={55}>
             <Image objectFit="fill" src={searchPosts[0]?.image} alt="postImage" maxWidth={900} maxHeight={1000} />
           </Stack>
 
-          <Stack mb={50}>{searchPosts[0]?.post}</Stack>
+          {/* eslint-disable-next-line new-cap */}
+          <Stack>{ReactHtmlParser(searchPosts[0]?.post)}</Stack>
         </Stack>
 
         <Stack>
