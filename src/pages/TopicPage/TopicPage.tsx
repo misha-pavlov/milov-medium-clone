@@ -9,7 +9,6 @@ import FollowButton from '../../components/FollowButton/FollowButton';
 import ModalLogin from '../../components/ModalLogin/ModalLogin';
 import Footer from '../../components/Footer/Footer';
 import HeaderPost from '../../components/HeaderPost/HeaderPost';
-import GetMore from '../../components/GetMore/GetMore';
 import { TMediumMain } from '../MediumMain/MediumMain';
 import { TPosts } from '../../redux/reducers/PostsReducer';
 import { messages } from '../../config/messages';
@@ -82,7 +81,6 @@ const TopicPage: React.FC<TTopicPage & TMediumMain> = ({
           ) : (
             <Stack align="center">{postsList}</Stack>
           )}
-          <GetMore />
         </Stack>
 
         <Stack width={375}>

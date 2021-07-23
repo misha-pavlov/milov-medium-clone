@@ -4,7 +4,6 @@ import { Stack } from '@chakra-ui/react';
 import RecentPostsItem from './RecentPostsItem';
 import { RecentPost } from '../../config/fonts';
 import { messages } from '../../config/messages';
-import GetMore from '../GetMore/GetMore';
 import { TPosts } from '../../redux/reducers/PostsReducer';
 
 export type TRecentPosts = {
@@ -28,7 +27,6 @@ const RecentPosts: React.FC<TRecentPosts> = ({ posts }) => {
     <Stack width={800}>
       <RecentPost>{messages.recentPost}</RecentPost>
       {postsList.reverse()}
-      <GetMore />
     </Stack>
   );
 };
