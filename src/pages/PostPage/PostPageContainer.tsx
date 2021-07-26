@@ -6,11 +6,11 @@ import PostPage from './PostPage';
 import { TMediumMain } from '../MediumMain/MediumMain';
 import { getPost, TPosts } from '../../redux/reducers/PostsReducer';
 import { AppStateType } from '../../redux/redux';
-import { getSearchPosts } from '../../redux/selectors/UsersSelector';
+import { getCurrentPost } from '../../redux/selectors/UsersSelector';
 import { useParams } from 'react-router-dom';
 
 type statePropsType = {
-  searchPosts: Array<TPosts>;
+  currentPost: TPosts | {};
 };
 
 type dispatchPropsType = {
@@ -26,7 +26,7 @@ const PostPageContainer: React.FC<TPostPageContainer> = ({
   removeLocalStorageItem,
   addLocalStorageItem,
   getPost,
-  searchPosts,
+  currentPost,
 }) => {
   const params = useParams<{ name: string; id: string }>();
   useEffect(() => {
@@ -40,13 +40,14 @@ const PostPageContainer: React.FC<TPostPageContainer> = ({
       addLocalStorageItem={addLocalStorageItem}
       removeLocalStorageItem={removeLocalStorageItem}
       isAuth={isAuth}
-      searchPosts={searchPosts}
+      // @ts-ignore
+      currentPost={currentPost}
     />
   );
 };
 
 const mapStateToProps = (state: AppStateType) => ({
-  searchPosts: getSearchPosts(state),
+  currentPost: getCurrentPost(state),
 });
 
 export default compose(

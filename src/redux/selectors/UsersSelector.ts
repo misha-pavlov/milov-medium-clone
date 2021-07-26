@@ -11,3 +11,7 @@ export const getRecentPosts = (state: AppStateType) => {
 export const getSearchPosts = (state: AppStateType) => {
   return state.postsReducer.searchPosts;
 };
+
+export const getCurrentPost = (state: AppStateType) => {
+  return state.postsReducer.currentPost;
+};

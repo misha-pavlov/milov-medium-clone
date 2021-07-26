@@ -27,6 +27,7 @@ export const constants = {
     CLEAR_POSTS: 'CLEAR_POSTS',
     CLEAR_SEARCH_POSTS: 'CLEAR_SEARCH_POSTS',
     SEARCH_POSTS: 'SEARCH_POSTS',
+    SET_CURRENT_POST: 'SET_CURRENT_POST',
   },
 
   localStorage: {

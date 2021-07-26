@@ -11,14 +11,14 @@ import { TMediumMain } from '../MediumMain/MediumMain';
 import { TPosts } from '../../redux/reducers/PostsReducer';
 import useUsersData from '../../hooks/useUsersData';
 
-const PostPage: React.FC<TMediumMain & { searchPosts: Array<TPosts> }> = ({
+const PostPage: React.FC<TMediumMain & { currentPost: TPosts }> = ({
   isAuth,
   removeLocalStorageItem,
   addLocalStorageItem,
-  searchPosts,
+  currentPost,
 }) => {
   const [user, setUser] = useState<any>(undefined);
-  useUsersData(searchPosts[0]?.postCreator)
+  useUsersData(currentPost.postCreator)
     .then(success => setUser(success))
     .catch(err => err);
 
@@ -31,18 +31,18 @@ const PostPage: React.FC<TMediumMain & { searchPosts: Array<TPosts> }> = ({
       />
       <Stack align="center">
         <Stack width={900}>
-          <PostHeader>{searchPosts[0]?.name}</PostHeader>
+          <PostHeader>{currentPost.name}</PostHeader>
 
           <Stack mb={50}>
             <HeaderPost user={user?.userName} photo={user?.photo} isPostPage />
           </Stack>
 
           <Stack pb={55}>
-            <Image objectFit="fill" src={searchPosts[0]?.image} alt="postImage" maxWidth={900} maxHeight={1000} />
+            <Image objectFit="fill" src={currentPost.image} alt="postImage" maxWidth={900} maxHeight={1000} />
           </Stack>
 
           {/* eslint-disable-next-line new-cap */}
-          <Stack>{ReactHtmlParser(searchPosts[0]?.post)}</Stack>
+          <Stack>{ReactHtmlParser(currentPost.post)}</Stack>
         </Stack>
 
         <Stack>

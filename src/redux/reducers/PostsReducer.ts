@@ -19,6 +19,7 @@ export type TPosts = {
 const initialState: initialStateType = {
   posts: [],
   searchPosts: [],
+  currentPost: {},
 };
 
 const PostsReducer = (state = initialState, action: ActionsTypesPosts): initialStateType => {
@@ -94,6 +95,31 @@ const PostsReducer = (state = initialState, action: ActionsTypesPosts): initialS
       };
     }
 
+    case constants.reducers.SET_CURRENT_POST: {
+      return {
+        ...state,
+        currentPost: {
+          // @ts-ignore
+          _id: action._id,
+          // @ts-ignore
+          name: action.name,
+          // @ts-ignore
+          image: action.image,
+          // @ts-ignore
+          topic: action.topic,
+          // @ts-ignore
+          postCreator: action.postCreator,
+          // @ts-ignore
+          date: action.date,
+          // @ts-ignore
+          timeToRead: action.timeToRead,
+          // @ts-ignore
+          post: action.post,
+          __v: 0,
+        },
+      };
+    }
+
     default:
       return state;
   }
@@ -133,6 +159,28 @@ export const actionsPosts = {
     post: string,
   ) =>
     ({ type: constants.reducers.SEARCH_POSTS, _id, name, image, topic, postCreator, date, timeToRead, post } as const),
+
+  setCurrentPost: (
+    _id: string,
+    name: string,
+    image: string,
+    topic: string,
+    postCreator: string,
+    date: string,
+    timeToRead: string,
+    post: string,
+  ) =>
+    ({
+      type: constants.reducers.SET_CURRENT_POST,
+      _id,
+      name,
+      image,
+      topic,
+      postCreator,
+      date,
+      timeToRead,
+      post,
+    } as const),
 };
 
 // Thunks
@@ -223,9 +271,8 @@ export const postCreatorPostsList = (postCreator: string): ThunkPostType => {
 export const getPost = (_id: string): ThunkPostType => {
   return async dispatch => {
     const response = await postAPI.getPost(_id);
-    dispatch(actionsPosts.clearSearchPosts());
     dispatch(
-      actionsPosts.searchPosts(
+      actionsPosts.setCurrentPost(
         // @ts-ignore
         response._id,
         // @ts-ignore
@@ -266,6 +313,7 @@ export default PostsReducer;
 export type initialStateType = {
   posts: Array<TPosts>;
   searchPosts: Array<TPosts>;
+  currentPost: TPosts | {};
 };
 type ActionsTypesPosts = InferActionsTypes<typeof actionsPosts>;
 type ThunkPostType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypesPosts>;
