@@ -42,7 +42,7 @@ const TrendItem: React.FC<TTrendItem> = ({ trendNumber, user, name, timeToRead, 
         </Stack>
         <Stack>
           <PostDateTime>
-            {date} • {timeToRead}
+            {date} • {timeToRead} хвилин
           </PostDateTime>
         </Stack>
       </Stack>

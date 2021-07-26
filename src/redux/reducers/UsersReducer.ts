@@ -6,7 +6,6 @@ import { constants } from '../../config/constants';
 
 export type TUsers = {
   _id: string;
-  id?: string;
   userName: string;
   password: string;
   twitter?: string;

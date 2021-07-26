@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Input, InputGroup, InputLeftElement, InputRightElement, Stack, useToast } from '@chakra-ui/react';
 import { AtSignIcon, LockIcon } from '@chakra-ui/icons';
 import { useFormik } from 'formik';
@@ -13,7 +13,12 @@ const Stage2: React.FC<TStage2 & { addLocalStorageItem?: (params: string) => voi
   addLocalStorageItem,
 }) => {
   const toast = useToast();
-  const [show, setShow] = React.useState(false);
+  const [show, setShow] = useState(false);
+  const [usersNames, setUsersList] = useState<Array<string>>([]);
+
+  useEffect(() => {
+    users?.map(u => setUsersList([...usersNames, u.userName]));
+  }, [users]);
 
   const handleClick = () => setShow(!show);
 
@@ -24,7 +29,7 @@ const Stage2: React.FC<TStage2 & { addLocalStorageItem?: (params: string) => voi
     },
     onSubmit: values => {
       if (users) {
-        users.filter(u => {
+        users.forEach(u => {
           if (u.userName === values.userName) {
             if (u.password === values.password) {
               toast.closeAll();
@@ -37,7 +42,7 @@ const Stage2: React.FC<TStage2 & { addLocalStorageItem?: (params: string) => voi
                 addLocalStorageItem(JSON.stringify(u));
               }
               onClick();
-              return 0;
+              return null;
             }
             toast.closeAll();
             toast({
@@ -45,15 +50,14 @@ const Stage2: React.FC<TStage2 & { addLocalStorageItem?: (params: string) => voi
               status: 'error',
               isClosable: true,
             });
-            return 0;
+          } else if (!usersNames.includes(values.userName)) {
+            toast.closeAll();
+            toast({
+              title: messages.stages.errorLogin,
+              status: 'error',
+              isClosable: true,
+            });
           }
-          toast.closeAll();
-          toast({
-            title: messages.stages.errorLogin,
-            status: 'error',
-            isClosable: true,
-          });
-          return 0;
         });
       }
     },
