@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { userAPI } from '../api/api';
 import { TUsers } from '../redux/reducers/UsersReducer';
 
-const useUsersData = async (userName: string) => {
+const useUsersData = async (userName?: string) => {
   const [usersList, setUsersList] = useState<Array<TUsers>>([]);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const useUsersData = async (userName: string) => {
     })();
   }, []);
 
-  const result = await usersList.filter(u => u.userName === userName);
+  const result = usersList.filter(u => u.userName === userName);
   return result === [] ? [] : result[0];
 };
 

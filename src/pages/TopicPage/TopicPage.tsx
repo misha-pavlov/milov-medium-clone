@@ -32,10 +32,6 @@ const TopicPage: React.FC<TTopicPage & TMediumMain> = ({
 }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [user, setUser] = useState<any>(undefined);
-  postCreator &&
-    useUsersData(postCreator)
-      .then(success => setUser(success))
-      .catch(err => err);
 
   const postsList = searchPosts.map(t => (
     <RecentPostsItem
@@ -48,6 +44,10 @@ const TopicPage: React.FC<TTopicPage & TMediumMain> = ({
       image={t.image}
     />
   ));
+
+  useUsersData(postCreator)
+    .then(success => setUser(success))
+    .catch(err => err);
 
   return (
     <Stack>
