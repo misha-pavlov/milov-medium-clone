@@ -18,9 +18,9 @@ type TTrendItem = {
 
 const TrendItem: React.FC<TTrendItem> = ({ trendNumber, user, name, timeToRead, date, _id }) => {
   const history = useHistory();
-  const [photo, setPhoto] = useState<any>(undefined);
+  const [currentUser, setCurrentUser] = useState<any>(undefined);
   useUsersData(user)
-    .then(success => setPhoto(success))
+    .then(success => setCurrentUser(success))
     .catch(err => err);
 
   const goToPost = () => {
@@ -34,7 +34,7 @@ const TrendItem: React.FC<TTrendItem> = ({ trendNumber, user, name, timeToRead, 
       </Stack>
 
       <Stack>
-        <HeaderPost user={user} photo={photo} />
+        <HeaderPost user={user} photo={currentUser?.photo} />
         <Stack onClick={goToPost}>
           <DefaultText pointer isBold>
             {name}
